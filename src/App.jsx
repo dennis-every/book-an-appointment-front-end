@@ -5,6 +5,7 @@ import DeletePlace from './routes/DeletePlace'
 import MyReservations from './routes/MyReservations'
 import Reserve from './routes/Reserve'
 import Places from './routes/Places'
+import NotMatch from './routes/NotMatch';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path="deleteplace" element={<DeletePlace />} />
       <Route path="myreservations" element={<MyReservations />} />
       <Route path="reserve" element={<Reserve />} />
+      <Route path="*" element={<NotMatch />} />
     </Routes>
 
   );
