@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
@@ -36,7 +36,7 @@ const Place = ({ place, index }) => {
     <li className="each-item">
       <div className="img-cont">
         <div className="circle" style={circleStyle}>
-          <img src={photo} className="img" />
+          <img src={photo} className="img" alt="Place" />
         </div>
       </div>
       <h2 className="location">{location}</h2>
@@ -60,27 +60,62 @@ Place.propTypes = {
 const PlaceList = () => {
   const dispatch = useDispatch();
   const places = useSelector((state) => state.places);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     dispatch(fetchPlacesAsync());
   }, [dispatch]);
 
   const createList = (places) => {
-    const list = places.map((place, index) => (
-      <Place place={place} index={index} key={place.id} />
+    const startIndex = currentPage * 3;
+    const endIndex = startIndex + 3;
+    const slicedPlaces = places.slice(startIndex, endIndex);
+
+    const list = slicedPlaces.map((place, index) => (
+      <Place place={place} index={startIndex + index} key={place.id} />
     ));
     return list;
   };
 
-  return <ul className="list">{createList(places)}</ul>;
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  return (
+    <div className="place-list-container">
+      <ul className="list">{createList(places)}</ul>
+      <div className="pagination">
+        <button
+          className="pagination-button"
+          disabled={currentPage === 0}
+          onClick={handlePreviousPage}
+        >
+          {'<'}
+        </button>
+        <button
+          className="pagination-button"
+          disabled={places.length <= (currentPage + 1) * 3}
+          onClick={handleNextPage}
+        >
+          {'>'}
+        </button>
+      </div>
+    </div>
+  );
 };
 
 const Places = () => (
+
   <div className="places-cont">
     <h1 className="title">Anywhere, Any week</h1>
     <p className="subtitle">Please select a Place</p>
-    <PlaceList />
+    <div className="place-list-wrapper">
+      <PlaceList />
+    </div>
   </div>
 );
-
-export default Places;
+export default Places

@@ -62,32 +62,74 @@
   border-radius: 50%;
 }
 
-/* Add the remaining styles as before */
 
 .circle:hover .img {
   transform: scale(1); /* Reset the scale on hover */
 }
 
-     
-  
-  .location {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-  }
-  
-  .description {
-    margin: 2vh 0;
-    color: #b1b1b1;
-    font-size: 0.8rem;
-    font-weight: bold;
-    width: 300px;
-  }
-  
-  .social {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }  
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px; 
+  box-sizing: border-box;
+}
+
+.places-cont {
+  position: relative;
+  min-height: 100vh;
+  padding: 20px; 
+  box-sizing: border-box;
+}
+
+.place-list-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.pagination-button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #000;
+}
+
+.pagination-button:hover {
+  color: #000;
+}
+
+.place-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+.location {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+}
+
+.description {
+  margin: 2vh 0;
+  color: #b1b1b1;
+  font-size: 0.8rem;
+  font-weight: bold;
+  width: 300px;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
 
 .social-cont {
   display: flex;
