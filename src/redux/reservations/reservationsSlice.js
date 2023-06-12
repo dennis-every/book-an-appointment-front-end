@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const getUrl = ''
+const getUrl = 'http://127.0.0.1:3000/api/v1/reservations'
 export const getReservations = createAsyncThunk('reservations/getReservations',
   async () => {
     try {
