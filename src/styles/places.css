@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 2vh 0 2vh 0;
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #bbb;
+  text-align: center;
+  margin-bottom: 4vh;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.each-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-cont {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px; /* Adjust the width based on your preference */
+  height: 250px; /* Adjust the height based on your preference */
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Add the remaining styles as before */
+
+.circle:hover .img {
+  transform: scale(1); /* Reset the scale on hover */
+}
+
+     
+  
+  .location {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+  }
+  
+  .description {
+    margin: 2vh 0;
+    color: #b1b1b1;
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: 300px;
+  }
+  
+  .social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }  
+
+.social-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #bbb;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+
+.social-cont:hover {
+  cursor: pointer;
+}
+
+.social-mini {
+  width: 10px;
+  height: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .places-cont {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 3%;
+  }
+
+  .description {
+    margin: 2vh 0 1vh 0;
+    width: 350px;
+    min-height: 75px;
+  }
+}
