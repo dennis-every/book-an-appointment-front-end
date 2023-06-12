@@ -21,6 +21,22 @@ const reservationsSlice = createSlice({
   initialState,
   reducers: {
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getReservations.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
+      .addCase(getReservations.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        reservations: action.payload,
+      }))
+      .addCase(getReservations.rejected, (state) => ({
+        ...state,
+        isLoading: false,
+      }));
+  },
 });
 
 export default reservationsSlice.reducer;
