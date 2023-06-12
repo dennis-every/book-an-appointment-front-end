@@ -13,7 +13,8 @@ export const getReservations = createAsyncThunk('reservations/getReservations',
   });
 
 const initialState = {
-  reservationsItems: []
+  reservations: [],
+  isLoading: true,
 };
 
 const reservationsSlice = createSlice({
