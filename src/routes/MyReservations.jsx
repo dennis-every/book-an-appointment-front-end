@@ -1,4 +1,5 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 
 const MyReservations = () => {
   const dispatch = useDispatch();
@@ -10,10 +11,15 @@ const MyReservations = () => {
     }
   }, [dispatch]);
 
+  if (isLoading) {
+    return (
+      <h2>Is loading .....</h2>
+    );
+  }
 
   return (
-    <div>MyReservations</div>
+    <ReservationsContainer />
   )
 }
 
-export default MyReservations
+export default MyReservations;
