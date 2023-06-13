@@ -64,6 +64,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: silver;
 }
 
 
@@ -76,6 +77,13 @@
 
 .circle:hover .img {
   transform: scale(1); /* Reset the scale on hover */
+}
+
+.dots {
+  text-align: center;
+  color: #eaeaea;
+  font-size: 25px;
+  margin: 0;
 }
 
 .pagination {
@@ -155,6 +163,8 @@
 .location {
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
+  margin-top: 8%;
+  margin-bottom: 0;
 }
 
 .description {
@@ -207,5 +217,9 @@
   .description {
     margin: 2vh 0 1vh 0;
     width: 350px;
+  }
+
+  h2{
+    font-size: 1.5rem;
   }
 }

@@ -9,16 +9,6 @@ import {Link} from 'react-router-dom'
 const Place = ({ place }) => {
   const { id, description, photo, location, rate } = place;
 
-  const getColorByIndex = (index) => {
-    const colors = ['bisque', 'darkgrey', 'lightblue', 'burlywood'];
-    const colorIndex = index % colors.length;
-    return colors[colorIndex];
-  };
-
-  const circleStyle = {
-    backgroundColor: getColorByIndex(id),
-  };
-
   const socialMedia = () => {
     const socialMedia = ['ri:facebook-fill', 'mdi:twitter', 'mdi:instagram'];
     const social = [];
@@ -38,11 +28,12 @@ const Place = ({ place }) => {
     <Link className="place-link" to={`/places/${id}`}>
       <div className="place-wrapper">
         <div className="img-cont">
-          <div className="circle" style={circleStyle}>
+          <div className="circle">
             <img src={photo} className="img" alt="Place" />
           </div>
         </div>
         <h2 className="location">{location}</h2>
+        <p className="dots">....................</p>
       </div>
     </Link>
     <p className="description">{description}</p>
