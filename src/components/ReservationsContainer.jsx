@@ -1,5 +1,4 @@
-import React from 'react';
-import { useSelector } from '../redux/redux-hooks';
+import { useSelector } from 'react-redux';
 import Reservation from './Reservation';
 
 const ReservationsContainer = () => {
