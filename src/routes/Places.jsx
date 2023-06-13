@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import { fetchPlacesAsync } from '../redux/places/placesSlice';
 import '../styles/places.css';
+import {Link} from 'react-router-dom'
 
 const Place = ({ place, index }) => {
   const { id, description, photo, location } = place;
@@ -34,12 +35,14 @@ const Place = ({ place, index }) => {
 
   return (
     <li className="each-item">
+      <Link className="place-link" to={`/places/${id}`}>
       <div className="img-cont">
         <div className="circle" style={circleStyle}>
           <img src={photo} className="img" alt="Place" />
         </div>
       </div>
       <h2 className="location">{location}</h2>
+      </Link>
       <p className="description">{description}</p>
       <ul className="social">{socialMedia()}</ul>
     </li>
