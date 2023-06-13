@@ -1,6 +1,8 @@
 const Places = () => {
   return (
-    <div>Places</div>
+    <a href="/details">
+      <div>Place with id:1</div>
+    </a>
   )
 }
 
