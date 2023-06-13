@@ -37,8 +37,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 250px; /* Adjust the width based on your preference */
-  height: 250px; /* Adjust the height based on your preference */
+  width: 250px;
+  height: 250px;
 }
 
 .circle {
@@ -74,14 +74,14 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px; 
+  padding: 20px;
   box-sizing: border-box;
 }
 
 .places-cont {
   position: relative;
   min-height: 100vh;
-  padding: 20px; 
+  padding: 20px;
   box-sizing: border-box;
 }
 
