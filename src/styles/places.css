@@ -80,11 +80,34 @@
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  bottom: 0;
+  top: 50%;
   left: 0;
   right: 0;
-  padding: 20px;
   box-sizing: border-box;
+  transform: translateY(-50%);
+}
+
+.button-boxleft{
+  background-color: #8eaf1a;
+  align-self: flex-start;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 55px;
+  height: 47px;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.button-boxright{
+  background-color: #8eaf1a;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  width: 55px;
+  height: 47px;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
 }
 
 .places-cont {
@@ -102,14 +125,11 @@
 .pagination-button {
   background: none;
   border: none;
-  font-size: 2rem;
+  width: 25px;
+  margin-right: 8px;
   cursor: pointer;
-  color: #000;
 }
 
-.pagination-button:hover {
-  color: #000;
-}
 
 .place-list-container {
   display: flex;

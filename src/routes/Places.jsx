@@ -92,20 +92,25 @@ const PlaceList = () => {
     <div className="place-list-container">
       <ul className="list">{createList(places)}</ul>
       <div className="pagination">
+        <div className="button-boxleft">
         <button
           className="pagination-button"
           disabled={currentPage === 0}
           onClick={handlePreviousPage}
         >
-          {'<'}
+          <Icon  color="#fff" icon='bx:left-arrow' />
+          
         </button>
+        </div>
+        <div className="button-boxright">
         <button
           className="pagination-button"
           disabled={places.length <= (currentPage + 1) * 3}
           onClick={handleNextPage}
         >
-          {'>'}
+          <Icon color="#fff" icon='bx:right-arrow' />
         </button>
+        </div>
       </div>
     </div>
   );
