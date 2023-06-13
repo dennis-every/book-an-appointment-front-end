@@ -67,7 +67,6 @@
   background-color: silver;
 }
 
-
 .img {
   width: 100%;
   height: auto;
@@ -98,7 +97,7 @@
   transform: translateY(-50%);
 }
 
-.button-boxleft{
+.button-boxleft {
   background-color: #8eaf1a;
   align-self: flex-start;
   display: flex;
@@ -110,7 +109,7 @@
   border-bottom-right-radius: 24px;
 }
 
-.button-boxright{
+.button-boxright {
   background-color: #8eaf1a;
   align-self: flex-start;
   display: flex;
@@ -119,11 +118,6 @@
   height: 47px;
   border-top-left-radius: 24px;
   border-bottom-left-radius: 24px;
-}
-
-.button-boxleft.disabled,
-.button-boxright.disabled {
-  background-color: grey;
 }
 
 .places-cont {
@@ -151,7 +145,6 @@
   background-color: gainsboro;
 }
 
-
 .place-list-container {
   display: flex;
   flex-direction: column;
@@ -176,7 +169,7 @@
   text-align: center;
 }
 
-.rate{
+.rate {
   font-weight: 600;
   color: darkolivegreen;
 }
@@ -219,7 +212,7 @@
     width: 350px;
   }
 
-  h2{
+  h2 {
     font-size: 1.5rem;
   }
 }
