@@ -8,9 +8,10 @@ const ReservationsContainer = () => {
       {reservations.map((item) => (
         <Reservation
           key={item.id}          
-          start_date={item.start_date}
-          end_date={item.end_date}
-          bill={item.bill}          
+          startDate={item.start_date}
+          endDate={item.end_date}
+          bill={item.bill}
+          placeId={item.place_id}          
         />
       ))}
 
