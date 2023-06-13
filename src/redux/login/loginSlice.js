@@ -4,7 +4,8 @@ import axios from 'axios';
 const URL = 'http://localhost:3000/api/v1/login';
 
 const initialState = {
-  name: '',
+  userName: '',
+  userId: null,
   ifSucceed: false,
   ifLoading: false,
   errors: null,
@@ -26,8 +27,8 @@ const loginSlice = createSlice({
   name: 'login',
   initialState,
   reducers: {
-    setName: (state, action) => {
-      state.name = action.payload;
+    setUserName: (state, action) => {
+      state.userName = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -36,10 +37,11 @@ const loginSlice = createSlice({
         ...state,
         isLoading: true,
       }))
-      .addCase(submitLoginForm.fulfilled, (state) => ({
+      .addCase(submitLoginForm.fulfilled, (state, action) => ({
         ...state,
         isLoading: false,
         ifSucceed: true,
+        userId: action.payload.id,
       }))
       .addCase(submitLoginForm.rejected, (state, action) => ({
         ...state,
@@ -49,6 +51,6 @@ const loginSlice = createSlice({
   },
 });
 
-export const { setName } = loginSlice.actions;
+export const { setUserName } = loginSlice.actions;
 
 export default loginSlice.reducer;

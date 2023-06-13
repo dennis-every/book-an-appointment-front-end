@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { setName, submitLoginForm } from '../redux/login/loginSlice';
+import { setUserName, submitLoginForm } from '../redux/login/loginSlice';
 import './Login.scss';
 
 const LogIn = () => {
   const dispatch = useDispatch();
-  const name = useSelector((state) => state.login.name);
+  const name = useSelector((state) => state.login.userName);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     dispatch(submitLoginForm({ name }));
-    dispatch(setName(''));
+    dispatch(setUserName(''));
   };
 
   return (
@@ -30,7 +30,7 @@ const LogIn = () => {
                 name='name'
                 placeholder='Username'
                 value={name}
-                onChange={(e) => dispatch(setName(e.target.value))}
+                onChange={(e) => dispatch(setUserName(e.target.value))}
                 className='form-control'
               />
             </div>
