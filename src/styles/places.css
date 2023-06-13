@@ -110,6 +110,11 @@
   border-bottom-left-radius: 24px;
 }
 
+.button-boxleft.disabled,
+.button-boxright.disabled {
+  background-color: grey;
+}
+
 .places-cont {
   position: relative;
   min-height: 100vh;
@@ -128,6 +133,11 @@
   width: 25px;
   margin-right: 8px;
   cursor: pointer;
+}
+
+.button-boxleft.disabled,
+.button-boxright.disabled {
+  background-color: gainsboro;
 }
 
 
