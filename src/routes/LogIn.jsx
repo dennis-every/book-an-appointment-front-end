@@ -1,7 +1,19 @@
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setName, submitLoginForm } from '../redux/login/loginSlice';
 import './Login.scss';
 
 const LogIn = () => {
+  const dispatch = useDispatch();
+  const name = useSelector((state) => state.login.name);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(submitLoginForm({ name }));
+    dispatch(setName(''));
+  };
+
   return (
     <section id='login'>
       <div className='login--container'>
@@ -9,14 +21,16 @@ const LogIn = () => {
           <h1 className='text-center fs-2 text-secondary'>Login</h1>
         </header>
         <main>
-          <form action='POST'>
+          <form onSubmit={handleSubmit}>
             <div className='mb-3'>
-              <label htmlFor='username'></label>
+              <label htmlFor='name'></label>
               <input
                 type='text'
-                id='username'
-                name='username'
+                id='name'
+                name='name'
                 placeholder='Username'
+                value={name}
+                onChange={(e) => dispatch(setName(e.target.value))}
                 className='form-control'
               />
             </div>
