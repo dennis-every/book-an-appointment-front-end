@@ -62,7 +62,6 @@
   border-radius: 50%;
 }
 
-
 .circle:hover .img {
   transform: scale(1); /* Reset the scale on hover */
 }
@@ -110,7 +109,6 @@
   justify-content: center;
   margin-top: 20px;
 }
-
 
 .location {
   font-family: 'Open Sans', sans-serif;
