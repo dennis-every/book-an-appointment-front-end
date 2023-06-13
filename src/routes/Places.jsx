@@ -6,8 +6,8 @@ import { fetchPlacesAsync } from '../redux/places/placesSlice';
 import '../styles/places.css';
 import {Link} from 'react-router-dom'
 
-const Place = ({ place, index }) => {
-  const { id, description, photo, location } = place;
+const Place = ({ place }) => {
+  const { id, description, photo, location, rate } = place;
 
   const getColorByIndex = (index) => {
     const colors = ['bisque', 'darkgrey', 'lightblue', 'burlywood'];
@@ -16,7 +16,7 @@ const Place = ({ place, index }) => {
   };
 
   const circleStyle = {
-    backgroundColor: getColorByIndex(index),
+    backgroundColor: getColorByIndex(id),
   };
 
   const socialMedia = () => {
@@ -35,17 +35,20 @@ const Place = ({ place, index }) => {
 
   return (
     <li className="each-item">
-      <Link className="place-link" to={`/places/${id}`}>
-      <div className="img-cont">
-        <div className="circle" style={circleStyle}>
-          <img src={photo} className="img" alt="Place" />
+    <Link className="place-link" to={`/places/${id}`}>
+      <div className="place-wrapper">
+        <div className="img-cont">
+          <div className="circle" style={circleStyle}>
+            <img src={photo} className="img" alt="Place" />
+          </div>
         </div>
+        <h2 className="location">{location}</h2>
       </div>
-      <h2 className="location">{location}</h2>
-      </Link>
-      <p className="description">{description}</p>
-      <ul className="social">{socialMedia()}</ul>
-    </li>
+    </Link>
+    <p className="description">{description}</p>
+    <p className="rate">${rate} per night</p>
+    <ul className="social">{socialMedia()}</ul>
+  </li>
   );
 };
 
@@ -70,15 +73,18 @@ const PlaceList = () => {
   }, [dispatch]);
 
   const createList = (places) => {
-    const startIndex = currentPage * 3;
-    const endIndex = startIndex + 3;
-    const slicedPlaces = places.slice(startIndex, endIndex);
-
-    const list = slicedPlaces.map((place, index) => (
-      <Place place={place} index={startIndex + index} key={place.id} />
-    ));
+    const itemsPerPage = 3;
+    const startIndex = currentPage * itemsPerPage;
+    const endIndex = Math.min(startIndex + itemsPerPage, places.length);
+  
+    const list = places
+      .slice(startIndex, endIndex)
+      .map((place, index) => (
+        <Place place={place} index={startIndex + index} key={place.id} />
+      ));
+  
     return list;
-  };
+  };    
 
   const handlePreviousPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
