@@ -16,7 +16,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Places />} />
-        <Route path="/place/:id" element={<PlaceDetails/>} />       
+        <Route path="/places/:id" element={<PlaceDetails/>} />       
         <Route path="addplace" element={<AddPlace />} />
         <Route path="deleteplace" element={<DeletePlace />} />
         <Route path="myreservations" element={<MyReservations />} />
