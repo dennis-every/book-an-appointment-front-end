@@ -39,29 +39,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.place-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .img-cont {
-  position: relative;
+  width: 250px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 250px;
-  height: 250px;
 }
 
 .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  z-index: -1;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: silver;
 }
 
 .img {
@@ -75,16 +78,46 @@
   transform: scale(1); /* Reset the scale on hover */
 }
 
+.dots {
+  text-align: center;
+  color: #eaeaea;
+  font-size: 25px;
+  margin: 0;
+}
+
 .pagination {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  bottom: 0;
+  top: 50%;
   left: 0;
   right: 0;
-  padding: 20px;
   box-sizing: border-box;
+  transform: translateY(-50%);
+}
+
+.button-boxleft {
+  background-color: #8eaf1a;
+  align-self: flex-start;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 55px;
+  height: 47px;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.button-boxright {
+  background-color: #8eaf1a;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  width: 55px;
+  height: 47px;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
 }
 
 .places-cont {
@@ -102,13 +135,14 @@
 .pagination-button {
   background: none;
   border: none;
-  font-size: 2rem;
+  width: 25px;
+  margin-right: 8px;
   cursor: pointer;
-  color: #000;
 }
 
-.pagination-button:hover {
-  color: #000;
+.button-boxleft.disabled,
+.button-boxright.disabled {
+  background-color: gainsboro;
 }
 
 .place-list-container {
@@ -122,6 +156,8 @@
 .location {
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
+  margin-top: 8%;
+  margin-bottom: 0;
 }
 
 .description {
@@ -130,6 +166,12 @@
   font-size: 0.8rem;
   font-weight: bold;
   width: 300px;
+  text-align: center;
+}
+
+.rate {
+  font-weight: 600;
+  color: darkolivegreen;
 }
 
 .social {
@@ -168,6 +210,9 @@
   .description {
     margin: 2vh 0 1vh 0;
     width: 350px;
-    min-height: 75px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
   }
 }
