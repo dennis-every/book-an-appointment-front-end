@@ -1,3 +1,17 @@
+.circleD {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 80vw;
+  border-radius: 50%;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .img {
   width: 100%;
   height: auto;
@@ -5,16 +19,31 @@
   border-radius: 50%;
 }
 
-.circleD {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  height: 40%;
-  border-radius: 50%;
-  z-index: -1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media screen and (min-width: 768px) {
+  .circleD {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .place-det {
+    position: absolute;
+    top: 20%;
+    left: 80%;
+  }
 }
