@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPlaceAsync } from '../redux/places/placesSlice';
+import '../styles/addplace.css'
 
 const Form = () => {
   const [photo, setPhoto] = useState('');
@@ -32,28 +33,33 @@ const Form = () => {
   return (
     <>
       <form
+        className="form"
         onSubmit={addPlacehandler}
         onReset={resetForm}
       >
         <input
+          className="input"
           type="text"
           value={photo}
           onChange={(e) => setPhoto(e.target.value)}
           placeholder="Image URL"
         />
         <input
+          className="input"
           type="text"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
           placeholder="Location"
         />
         <input
+          className="input"
           type="number"
           value={rate}
           onChange={(e) => setRate(e.target.value)}
           placeholder="Rate"
         />
         <textarea
+          className="input"
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -61,6 +67,7 @@ const Form = () => {
           rows="6"
         />
         <input
+          className="add-btn"
           type="submit"
           value="Add Place"
           title="Click this or press enter to submit"
@@ -71,8 +78,8 @@ const Form = () => {
 };
 
 const AddPlace = () => (
-  <div>
-    <h2>ADD A NEW PLACE</h2>
+  <div className="form-cont">
+    <h2 className="title">ADD A NEW PLACE</h2>
     <Form />
   </div>
 );
