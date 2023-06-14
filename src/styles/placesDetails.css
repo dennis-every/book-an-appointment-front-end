@@ -1,3 +1,7 @@
+.detailsText {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .circleD {
   position: absolute;
   top: 50%;
@@ -17,6 +21,11 @@
   height: auto;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.buttonReserve {
+  background-color: #97bf0f;
+  height: 2.5vw;
 }
 
 @media screen and (min-width: 768px) {
