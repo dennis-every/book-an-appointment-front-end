@@ -5,12 +5,10 @@ import ReservationsContainer from '../components/ReservationsContainer';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
-  const {isLoading, reservations, } = useSelector((state)=>state.reservations)
+  const {isLoading } = useSelector((state)=>state.reservations)
 
   useEffect(() => {
-    if (reservations.length === 0) {
-      dispatch(getReservations());
-    }
+    dispatch(getReservations());
   }, [dispatch]);
 
   if (isLoading) {
