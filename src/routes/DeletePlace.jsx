@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { fetchPlacesAsync } from '../redux/places/placesSlice';
-import PlacesContainer from '../components/ReservationsContainer';
+import PlaceContainer from '../components/PlaceContainer';
 
 const DeletePlace = () => {
   const dispatch = useDispatch();  
@@ -11,7 +11,7 @@ const DeletePlace = () => {
   }, [dispatch]);
 
   return (
-    <PlacesContainer />
+    <PlaceContainer />
   )
 }
 
