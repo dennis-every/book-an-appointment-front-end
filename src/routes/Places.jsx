@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import { fetchPlacesAsync } from '../redux/places/placesSlice';
 import '../styles/places.css';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { isMobileOnly } from 'react-device-detect';
 
 const Place = ({ place }) => {
   const { id, description, photo, location, rate } = place;
@@ -25,21 +26,21 @@ const Place = ({ place }) => {
 
   return (
     <li className="each-item">
-    <Link className="place-link" to={`/places/${id}`}>
-      <div className="place-wrapper">
-        <div className="img-cont">
-          <div className="circle">
-            <img src={photo} className="img" alt="Place" />
+      <Link className="place-link" to={`/places/${id}`}>
+        <div className="place-wrapper">
+          <div className="img-cont">
+            <div className="circle">
+              <img src={photo} className="img" alt="Place" />
+            </div>
           </div>
+          <h2 className="location">{location}</h2>
+          <p className="dots">....................</p>
         </div>
-        <h2 className="location">{location}</h2>
-        <p className="dots">....................</p>
-      </div>
-    </Link>
-    <p className="description">{description}</p>
-    <p className="rate">${rate} per night</p>
-    <ul className="social">{socialMedia()}</ul>
-  </li>
+      </Link>
+      <p className="description">{description}</p>
+      <p className="rate">${rate} per night</p>
+      <ul className="social">{socialMedia()}</ul>
+    </li>
   );
 };
 
@@ -54,6 +55,75 @@ Place.propTypes = {
   index: PropTypes.number.isRequired,
 };
 
+const WebPlaceList = ({ places, currentPage, handlePreviousPage, handleNextPage }) => {
+  const itemsPerPage = 3;
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = Math.min(startIndex + itemsPerPage, places.length);
+
+  const createList = () => {
+    return places
+      .slice(startIndex, endIndex)
+      .map((place, index) => (
+        <Place place={place} index={startIndex + index} key={place.id} />
+      ));
+  };
+
+  return (
+    <div className="place-list-container">
+      <ul className="list">{createList()}</ul>
+      <div className="pagination">
+        <div
+          className={`button-boxleft ${currentPage === 0 ? 'disabled' : ''}`}
+        >
+          <button
+            className="pagination-button"
+            disabled={currentPage === 0}
+            onClick={handlePreviousPage}
+          >
+            <Icon color="#fff" icon="bx:left-arrow" />
+          </button>
+        </div>
+        <div
+          className={`button-boxright ${
+            places.length <= (currentPage + 1) * 3 ? 'disabled' : ''
+          }`}
+        >
+          <button
+            className="pagination-button"
+            disabled={places.length <= (currentPage + 1) * 3}
+            onClick={handleNextPage}
+          >
+            <Icon color="#fff" icon="bx:right-arrow" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+WebPlaceList.propTypes = {
+  places: PropTypes.array.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  handlePreviousPage: PropTypes.func.isRequired,
+  handleNextPage: PropTypes.func.isRequired,
+};
+
+const MobilePlaceList = ({ places }) => {
+  return (
+    <div className="place-list-container">
+      <ul className="list">
+        {places.map((place, index) => (
+          <Place place={place} index={index} key={place.id} />
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+MobilePlaceList.propTypes = {
+  places: PropTypes.array.isRequired,
+};
+
 const PlaceList = () => {
   const dispatch = useDispatch();
   const places = useSelector((state) => state.places);
@@ -63,20 +133,6 @@ const PlaceList = () => {
     dispatch(fetchPlacesAsync());
   }, [dispatch]);
 
-  const createList = (places) => {
-    const itemsPerPage = 3;
-    const startIndex = currentPage * itemsPerPage;
-    const endIndex = Math.min(startIndex + itemsPerPage, places.length);
-  
-    const list = places
-      .slice(startIndex, endIndex)
-      .map((place, index) => (
-        <Place place={place} index={startIndex + index} key={place.id} />
-      ));
-  
-    return list;
-  };    
-
   const handlePreviousPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
   };
@@ -85,37 +141,21 @@ const PlaceList = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
 
-  return (
-    <div className="place-list-container">
-      <ul className="list">{createList(places)}</ul>
-      <div className="pagination">
-      <div className={`button-boxleft ${currentPage === 0 ? 'disabled' : ''}`}>
-  <button
-    className="pagination-button"
-    disabled={currentPage === 0}
-    onClick={handlePreviousPage}
-  >
-    <Icon color="#fff" icon="bx:left-arrow" />
-  </button>
-</div>
-
-<div className={`button-boxright ${places.length <= (currentPage + 1) * 3 ? 'disabled' : ''}`}>
-  <button
-    className="pagination-button"
-    disabled={places.length <= (currentPage + 1) * 3}
-    onClick={handleNextPage}
-  >
-    <Icon color="#fff" icon="bx:right-arrow" />
-  </button>
-</div>
-
-      </div>
-    </div>
-  );
+  if (isMobileOnly) {
+    return <MobilePlaceList places={places} />;
+  } else {
+    return (
+      <WebPlaceList
+        places={places}
+        currentPage={currentPage}
+        handlePreviousPage={handlePreviousPage}
+        handleNextPage={handleNextPage}
+      />
+    );
+  }
 };
 
 const Places = () => (
-
   <div className="places-cont">
     <h1 className="title">Anywhere, Any week</h1>
     <p className="subtitle">Please select a Place</p>
@@ -124,4 +164,5 @@ const Places = () => (
     </div>
   </div>
 );
-export default Places
+
+export default Places;
