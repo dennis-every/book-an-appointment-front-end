@@ -1,10 +1,16 @@
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import '../styles/placesDetails.css';
 import '../styles/buttons.css'
 const PlaceDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const place = useSelector(state => state.places.find(item => item.id === parseInt(id) ));
+
+  const handleReserveClick = () => {
+    navigate('/reserve', { state: { place } });
+  }
+
   return (
     <div className='d-flex'>
       <div className="circleD" style= {{backgroundColor: 'beige'}} >
@@ -25,7 +31,7 @@ const PlaceDetails = () => {
             </tr>
           </tbody>
         </table>
-        <button type="button" className="btn btn-success btn-lg detailsText btn-radius buttonReserve text-center d-flex align-items-center">Reserve</button>
+        <button type="button" className="btn btn-success btn-lg detailsText btn-radius buttonReserve text-center d-flex align-items-center" onClick={handleReserveClick}>Reserve</button>
       </div>
     </div>
   )
