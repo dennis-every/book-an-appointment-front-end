@@ -1,9 +1,13 @@
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { delPlace } from "../redux/places/placesSlice";
 
 const Place = ({placeId, description, location, rate}) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handler = (elem) => {
     dispatch(delPlace(elem.id));
+    navigate('/deleteplace')
   };
   return (
     <div className="card">
@@ -12,7 +16,7 @@ const Place = ({placeId, description, location, rate}) => {
     <h5 className="card-title">Location: {location}</h5>
     <p className="card-text">Description: {description}</p>    
     <h5 className="card-title">Rate: ${rate}</h5>    
-    <button id={placeId} type="button" class="btn btn-primary" onClick={({ target }) => handler(target)}>Base class</button>
+    <button id={placeId} type="button" className="btn btn-primary" onClick={({ target }) => handler(target)}>Remove place</button>
   </div>
 </div>
   )
