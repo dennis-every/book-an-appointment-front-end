@@ -36,11 +36,11 @@
 }
 
 .add-btn {
-    display: flex;
-    justify-content: center;
-    background: #8eaf1a;
-    padding: 10px;
-    margin-bottom: 2%;
+  display: flex;
+  justify-content: center;
+  background: #8eaf1a;
+  padding: 10px;
+  margin-bottom: 2%;
 }
 
 .add-btn:hover {

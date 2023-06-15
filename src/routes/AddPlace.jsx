@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPlaceAsync } from '../redux/places/placesSlice';
 import { useNavigate } from 'react-router-dom'; // Updated import statement // Updated import statement
