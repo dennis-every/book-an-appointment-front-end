@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addPlaceAsync } from '../redux/places/placesSlice';
-import '../styles/addplace.css'
+import { useNavigate } from 'react-router-dom'; // Updated import statement // Updated import statement
+import '../styles/addplace.css';
 
 const Form = () => {
   const [photo, setPhoto] = useState('');
@@ -10,16 +11,24 @@ const Form = () => {
   const [description, setDescription] = useState('');
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  
+  const loggedInUser = useSelector((state) => state.login.userId); // Access the user's ID from the loginSlice
 
   const addPlacehandler = (e) => {
     e.preventDefault();
 
-    if ( photo !== '' && rate > 0 && location !== '' && description !== '') {
+    if (photo !== '' && rate > 0 && location !== '' && description !== '') {
       const place = {
-         photo, rate, location, description,
+        photo,
+        rate: Number(rate),
+        location,
+        description,
+        owner_id: loggedInUser, // Set the owner_id as the logged-in user's ID
       };
       dispatch(addPlaceAsync(place));
       e.target.reset();
+      navigate('/'); // Redirect to the index path
     }
   };
 
