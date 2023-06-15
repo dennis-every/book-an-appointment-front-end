@@ -3,14 +3,9 @@
 }
 
 .circleD {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80vw;
-  height: 80vw;
+  width: 50vw;
+  height: 50vw;
   border-radius: 50%;
-  z-index: -1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,19 +23,14 @@
   height: 2.5vw;
 }
 
-@media screen and (min-width: 768px) {
+.buttonBackPos {
+}
+
+@media screen and (min-width: 992px) {
   .circleD {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 40vw;
     height: 40vw;
     border-radius: 50%;
-    z-index: -1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .img {
@@ -51,8 +41,5 @@
   }
 
   .place-det {
-    position: absolute;
-    top: 20%;
-    left: 80%;
   }
 }
