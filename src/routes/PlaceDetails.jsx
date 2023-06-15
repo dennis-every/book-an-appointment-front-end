@@ -46,6 +46,11 @@ const PlaceDetails = () => {
           <button type="button" className="btn btn-success btn-lg detailsText btn-radius buttonReserve d-flex align-items-center justify-content-center" onClick={handleReserveClick}>Reserve</button>
         </div>
       </section>
+      <div className= "button-boxleft buttonBackPos">
+        <button className="pagination-button" onClick={handleBackClick}>
+          <Icon color="#fff" icon="bx:left-arrow" />
+        </button>
+      </div>
     </div>
   )
 }
