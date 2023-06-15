@@ -24,7 +24,7 @@ const PlaceDetails = () => {
           <img src={place.photo} alt="" className="img" srcSet="" />
         </div>
       </section>
-      <section className='d-flex flex-column align-items-end' >
+      <section className='d-flex flex-column align-items-end me-5' >
         <h2 className='mt-5 title' >{place.location}</h2>
         <table className="table table-striped table-hover table-borderless text-end detailsText mt-5 fw-medium">
           <tbody>
