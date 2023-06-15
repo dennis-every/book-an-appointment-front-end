@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Icon } from '@iconify/react';
 import '../styles/placesDetails.css';
 import '../styles/buttons.css'
@@ -40,10 +40,10 @@ const PlaceDetails = () => {
           </tbody>
         </table>
         <div>
-          <a href="/">Discover more places</a>
+          <Link className="place-link detailsText fw-bold d-flex align-items-center justify-content-center" to={'/'} style={{ fontSize: '13px' }} >DISCOVER MORE PLACES<Icon icon="iconamoon:arrow-right-2-bold" color="#f7db59" width="20" height="20" /> </Link>
         </div>
         <div className='mt-5'>
-          <button type="button" className="btn btn-success btn-lg detailsText btn-radius buttonReserve d-flex align-items-center justify-content-center" onClick={handleReserveClick}>Reserve</button>
+          <button type="button" className="btn btn-success btn-lg detailsText btn-radius buttonReserve d-flex align-items-center justify-content-center" onClick={handleReserveClick}>Reserve <Icon className='ms-3' icon="ri:arrow-right-circle-line" width="20" height="20" /></button>
         </div>
       </section>
       <div className= "button-boxleft buttonBackPos">
