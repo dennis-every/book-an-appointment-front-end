@@ -26,7 +26,7 @@ const PlaceDetails = () => {
       </section>
       <section className='d-flex flex-column align-items-end' >
         <h2 className='mt-5 title' >{place.location}</h2>
-        <table className="table table-striped table-hover table-borderless text-end detailsText mt-5">
+        <table className="table table-striped table-hover table-borderless text-end detailsText mt-5 fw-medium">
           <tbody>
             <tr>
               <td colSpan="3">{place.description}</td>
