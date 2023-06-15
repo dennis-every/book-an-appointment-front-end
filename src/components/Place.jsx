@@ -1,6 +1,10 @@
-import React from 'react'
+import { useDispatch } from "react-redux";
 
 const Place = ({placeId, description, location, rate}) => {
+  const dispatch = useDispatch();
+  const handler = (elem) => {
+    dispatch(delPlace(elem.id));
+  };
   return (
     <div className="card">
   
