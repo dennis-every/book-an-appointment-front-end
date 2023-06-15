@@ -21,7 +21,7 @@ const PlaceDetails = () => {
     <div className='d-flex' style={{ width: '100vw', height: '100%' }}>
       <section className='d-flex align-items-center justify-content-center'  style={{ width: '70vw', height: '100vh' }} >
         <div className="circleD" style= {{backgroundColor: 'beige'}}>
-          <img src={place.photo} alt="" className="img" srcSet="" />
+          <img src={place.photo} alt="" className="img"/>
         </div>
       </section>
       <section className='d-flex flex-column align-items-end me-5' >
