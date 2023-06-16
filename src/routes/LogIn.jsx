@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserName, submitLoginForm } from '../redux/login/loginSlice';
+import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const LogIn = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const name = useSelector((state) => state.login.userName);
 
   const handleSubmit = (e) => {
@@ -12,6 +14,7 @@ const LogIn = () => {
 
     dispatch(submitLoginForm({ name }));
     dispatch(setUserName(''));
+    navigate('/');
   };
 
   return (
@@ -35,7 +38,11 @@ const LogIn = () => {
               />
             </div>
             <div className='d-grid mt-5'>
-              <input type='submit' value='Submit' className='btn btn-success btn-radius' />
+              <input
+                type='submit'
+                value='Submit'
+                className='btn btn-success btn-radius'
+              />
             </div>
           </form>
           <div className='text-center mt-5'>
