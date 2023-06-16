@@ -24,8 +24,11 @@ const Reserve = () => {
   const places = useSelector((state) => state.places);
 
   useEffect(() => {
+    if (userId === null) {
+      navigate('/login');
+    }
     dispatch(fetchPlacesAsync());
-  }, [dispatch]);
+  }, [dispatch, userId, navigate]);
 
   const handlePlaceChange = (event) => {
     const placeId = Number(event.target.value);
