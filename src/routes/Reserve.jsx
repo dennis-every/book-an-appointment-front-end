@@ -80,6 +80,7 @@ const Reserve = () => {
                         id='start_date'
                         selected={startDate}
                         onChange={(date) => setStartDate(date)}
+                        minDate={new Date(new Date().getTime() + 86400000)}
                         className='form-control'
                         placeholderText='Select a start date'
                         required
