@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import { createReservation } from '../redux/reservations/reservationsSlice';
 import './Reserve.scss';
 import '../App.css';
@@ -11,17 +14,17 @@ const Reserve = () => {
     style: 'currency',
     currency: 'USD',
   });
-
   const dispatch = useDispatch();
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
   const handleBookNow = (event) => {
     event.preventDefault();
     const reservation = {
       customer_id: 3,
       place_id: place.id,
-      start_date: '2023-01-01',
-      end_date: '2023-01-31',
-      bill: 199.99,
+      start_date: startDate.toISOString().slice(0, 10),
+      end_date: endDate.toISOString().slice(0, 10),
     };
     console.log(reservation);
     dispatch(createReservation(reservation));
@@ -36,19 +39,46 @@ const Reserve = () => {
           </h1>
         </header>
         <main>
-          <div className='text-center mb-5'>
+          <div className='text-center mb-4'>
             <small>
               Located in {place.location} <br />
               {place.description} <br />
-              For only {currency.format(place.rate)}
+              For only {currency.format(place.rate)} per night
             </small>
           </div>
           <div className='reserve--container--buttons'>
             <div className='d-flex justify-content-center'>
               <form onSubmit={handleBookNow}>
-                <button type='submit' className='btn btn--white'>
-                  Book Now
-                </button>
+                <div className='mb-3'>
+                  <label
+                    htmlFor='start_date'
+                    className='visually-hidden'
+                  ></label>
+                  <DatePicker
+                    id='start_date'
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                    className='form-control'
+                    placeholderText='Select a start date'
+                    required
+                  />
+                </div>
+                <div className='mb-3'>
+                  <label htmlFor='end_date' className='visually-hidden'></label>
+                  <DatePicker
+                    id='end_date'
+                    selected={endDate}
+                    onChange={(date) => setEndDate(date)}
+                    className='form-control'
+                    placeholderText='Select an end date'
+                    required
+                  />
+                </div>
+                <div className='d-grid'>
+                  <button type='submit' className='btn btn--white'>
+                    Book Now
+                  </button>
+                </div>
               </form>
             </div>
           </div>
