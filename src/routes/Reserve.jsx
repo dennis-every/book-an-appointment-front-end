@@ -51,7 +51,16 @@ const Reserve = () => {
   };
 
   return (
-    <section className='reserve'>
+    <section
+      className='reserve'
+      style={{
+        backgroundImage: `linear-gradient(
+        0deg,
+        rgba(151, 191, 14, 0.9),
+        rgba(151, 191, 14, 0.9)
+      ), url(${place?.photo})`,
+      }}
+    >
       <div className='reserve--container'>
         <header>
           <h1 className='text-uppercase text-center fs-3 mb-4 fw-bold'>
