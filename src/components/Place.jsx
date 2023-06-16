@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
 import { delPlace } from "../redux/places/placesSlice";
 
@@ -18,5 +19,12 @@ const Place = ({placeId, description, location, rate}) => {
 </div>
   )
 }
+
+Place.propTypes = {
+  placeId: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  rate: PropTypes.number.isRequired,
+};
 
 export default Place;

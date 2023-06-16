@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 const Reservation = ({startDate, endDate, bill, placeId}) => {
   return (
     <div className="card">
@@ -12,5 +13,12 @@ const Reservation = ({startDate, endDate, bill, placeId}) => {
 </div>
   )
 }
+
+Reservation.propTypes = {
+  startDate: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
+  bill: PropTypes.number.isRequired,
+  placeId: PropTypes.number.isRequired,  
+};
 
 export default Reservation
