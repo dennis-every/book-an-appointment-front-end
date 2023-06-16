@@ -1,11 +1,12 @@
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
 import { useState, useEffect } from 'react';
 import '../styles/navbar.css';
 
 const NavigationBar = () => {
   const [isLocked, setIsLocked] = useState(true);
-  const [isHoverable, setIsHoverable] = useState(false);
-  const [isClosed, setIsClosed] = useState(false);
+  const [isHoverable, setIsHoverable] = useState(true);
+  const [isClosed, setIsClosed] = useState(true);
 
   // Function to toggle the lock state of the sidebar
   const toggleLock = () => {
@@ -48,7 +49,7 @@ const NavigationBar = () => {
         <span className="nav_image">
           <img src="images/logo.png" alt="logo_img" />
         </span>
-        <span className="logo_name">CodingNepal</span>
+        <span className="logo_name">AirBnB</span>
         <i className={`bx ${isLocked ? 'bx-lock-open-alt' : 'bx-lock-alt'}`} onClick={toggleLock} title="Unlock Sidebar"></i>
         <i className="bx bx-x" onClick={toggleSidebar}></i>
       </div>
@@ -61,66 +62,22 @@ const NavigationBar = () => {
               <span className="line"></span>
             </div>
             <li className="item">
-              <a href="#" className="link flex">
-                <i className="bx bx-home-alt"></i>
-                <span>Overview</span>
-              </a>
+              <Nav.Link className="link flex" as={NavLink} to="/"><i className="bx bx-home-alt"></i> Places</Nav.Link>
             </li>
             <li className="item">
-              <a href="#" className="link flex">
-                <i className="bx bx-grid-alt"></i>
-                <span>All Projects</span>
-              </a>
-            </li>
-          </ul>
-
-          <ul className="menu_item">
-            <div className="menu_title flex">
-              <span className="title">Editor</span>
-              <span className="line"></span>
-            </div>
-            <li className="item">
-              <a href="#" className="link flex">
-                <i className="bx bxs-magic-wand"></i>
-                <span>Magic Build</span>
-              </a>
+              <Nav.Link className="link flex" as={NavLink} to="/reserve"><i className="bx bx-home-alt"></i> Reserve</Nav.Link>
             </li>
             <li className="item">
-              <a href="#" className="link flex">
-                <i className="bx bx-folder"></i>
-                <span>New Projects</span>
-              </a>
+              <Nav.Link className="link flex" as={NavLink} to="/myreservations"><i className="bx bx-home-alt"></i> My Reservations</Nav.Link>
             </li>
             <li className="item">
-              <a href="#" className="link flex">
-                <i className="bx bx-cloud-upload"></i>
-                <span>Upload New</span>
-              </a>
-            </li>
-          </ul>
-
-          <ul className="menu_item">
-            <div className="menu_title flex">
-              <span className="title">Setting</span>
-              <span className="line"></span>
-            </div>
-            <li className="item">
-              <a href="#" className="link flex">
-                <i className="bx bx-flag"></i>
-                <span>Notice Board</span>
-              </a>
+              <Nav.Link className="link flex" as={NavLink} to="/deleteplace"><i className="bx bx-home-alt"></i> Delete Place</Nav.Link>
             </li>
             <li className="item">
-              <a href="#" className="link flex">
-                <i className="bx bx-award"></i>
-                <span>Award</span>
-              </a>
+              <Nav.Link className="link flex" as={NavLink} to="/addplace"><i className="bx bx-home-alt"></i> Add Place</Nav.Link>
             </li>
             <li className="item">
-              <a href="#" className="link flex">
-                <i className="bx bx-cog"></i>
-                <span>Setting</span>
-              </a>
+              <Nav.Link className="link flex" as={NavLink} to="/login"><i className="bx bx-home-alt"></i> Log In</Nav.Link>
             </li>
           </ul>
         </div>
@@ -129,9 +86,9 @@ const NavigationBar = () => {
           <span className="nav_image">
             <img src="images/profile.jpg" alt="logo_img" />
           </span>
-          <div className="data_text">
-            <span className="name">David Oliva</span>
-            <span className="email">david@gmail.com</span>
+          <div className="d-flex flex-column data_text">
+            <span className="name">Nilton Segura</span>
+            <span className="email">nseguralu@gmail.com</span>
           </div>
         </div>
       </div>
