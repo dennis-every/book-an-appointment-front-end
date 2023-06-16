@@ -35,7 +35,7 @@ const LogIn = () => {
               />
             </div>
             <div className='d-grid mt-5'>
-              <input type='submit' value='Submit' className='btn btn-primary' />
+              <input type='submit' value='Submit' className='btn btn-success btn-radius' />
             </div>
           </form>
           <div className='text-center mt-5'>

@@ -1,0 +1,44 @@
+.detailsText {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.circleD {
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.buttonReserve {
+  background-color: #97bf0f;
+  height: 2.5vw;
+}
+
+.buttonBackPos {
+  position: absolute;
+  top: 80vh;
+}
+
+@media screen and (min-width: 992px) {
+  .circleD {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50%;
+  }
+
+  .img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
