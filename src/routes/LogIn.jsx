@@ -1,19 +1,23 @@
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { setUserName, submitLoginForm } from '../redux/login/loginSlice';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { submitLoginForm } from '../redux/login/loginSlice';
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const LogIn = () => {
+  const [userName, setUserName] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const name = useSelector((state) => state.login.userName);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(submitLoginForm({ name }));
-    dispatch(setUserName(''));
+    const user = {
+      name: userName,
+    };
+    dispatch(submitLoginForm(user));
+    setUserName('');
     navigate('/');
   };
 
@@ -33,7 +37,7 @@ const LogIn = () => {
                 name='name'
                 placeholder='Username'
                 value={name}
-                onChange={(e) => dispatch(setUserName(e.target.value))}
+                onChange={(e) => setUserName(e.target.value)}
                 className='form-control'
               />
             </div>
