@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { createReservation } from '../redux/reservations/reservationsSlice';
@@ -17,11 +17,12 @@ const Reserve = () => {
   const dispatch = useDispatch();
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const userId = useSelector((state) => state.login.userId);
 
   const handleBookNow = (event) => {
     event.preventDefault();
     const reservation = {
-      customer_id: 3,
+      customer_id: userId,
       place_id: place.id,
       start_date: startDate.toISOString().slice(0, 10),
       end_date: endDate.toISOString().slice(0, 10),
