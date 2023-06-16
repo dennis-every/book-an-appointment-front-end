@@ -19,6 +19,7 @@ const fetchPlacesAsync = createAsyncThunk(
 //Remove place
 const delPlace = createAsyncThunk('places/delPlace',
   async (id) => {
+    try {
     const deleteUrl = `${placesURL}/${id}`;
     await fetch(deleteUrl, {
       method: 'DELETE',
@@ -26,8 +27,11 @@ const delPlace = createAsyncThunk('places/delPlace',
         'Content-Type': 'application/json',
       },
     });    
-    const placeId = parseInt(id)    
+    const placeId = parseInt(id)
     return placeId;
+  }catch(error) {
+    return error.message();
+  }
   });
 
 const initialState = [];
