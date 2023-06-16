@@ -26,31 +26,26 @@ export const submitLoginForm = createAsyncThunk(
 const loginSlice = createSlice({
   name: 'login',
   initialState,
-  reducers: {
-    setUserName: (state, action) => {
-      state.userName = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(submitLoginForm.pending, (state) => ({
         ...state,
-        isLoading: true,
+        ifLoading: true,
       }))
       .addCase(submitLoginForm.fulfilled, (state, action) => ({
         ...state,
-        isLoading: false,
+        ifLoading: false,
         ifSucceed: true,
         userId: action.payload.id,
+        userName: action.payload.name,
       }))
       .addCase(submitLoginForm.rejected, (state, action) => ({
         ...state,
-        isLoading: false,
+        ifLoading: false,
         errors: action.payload,
       }));
   },
 });
-
-export const { setUserName } = loginSlice.actions;
 
 export default loginSlice.reducer;
