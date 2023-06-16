@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -9,6 +9,7 @@ import '../App.css';
 
 const Reserve = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const place = location.state.place;
   const currency = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -27,8 +28,10 @@ const Reserve = () => {
       start_date: startDate.toISOString().slice(0, 10),
       end_date: endDate.toISOString().slice(0, 10),
     };
-    console.log(reservation);
     dispatch(createReservation(reservation));
+    setStartDate(null);
+    setEndDate(null);
+    navigate('/myreservations');
   };
 
   return (
@@ -47,7 +50,7 @@ const Reserve = () => {
               For only {currency.format(place.rate)} per night
             </small>
           </div>
-          <div className='reserve--container--buttons'>
+          <div className='reserve--container--form'>
             <div className='d-flex justify-content-center'>
               <form onSubmit={handleBookNow}>
                 <div className='mb-3'>
