@@ -4,8 +4,8 @@
   min-height: 100%;
   background: linear-gradient(
       0deg,
-      rgba(150, 191, 0, 0.86),
-      rgba(150, 191, 0, 0.86)
+      rgba(151, 191, 14, 0.9),
+      rgba(151, 191, 14, 0.9)
     ),
     url('https://images.unsplash.com/photo-1591825729269-caeb344f6df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');
   background-size: cover;
@@ -24,9 +24,6 @@
     }
 
     &--buttons {
-      display: flex;
-      justify-content: space-between;
-
       .btn {
         padding: 0.5rem 1.5rem !important;
         border: 1px solid #f5f5f5;

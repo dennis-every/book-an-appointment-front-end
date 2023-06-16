@@ -1,5 +1,8 @@
 import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { createReservation } from '../redux/reservations/reservationsSlice';
 import './Reserve.scss';
+import '../App.css';
 
 const Reserve = () => {
   const location = useLocation();
@@ -8,6 +11,21 @@ const Reserve = () => {
     style: 'currency',
     currency: 'USD',
   });
+
+  const dispatch = useDispatch();
+
+  const handleBookNow = (event) => {
+    event.preventDefault();
+    const reservation = {
+      customer_id: 3,
+      place_id: place.id,
+      start_date: '2023-01-01',
+      end_date: '2023-01-31',
+      bill: 199.99,
+    };
+    console.log(reservation);
+    dispatch(createReservation(reservation));
+  };
 
   return (
     <section className='reserve'>
@@ -26,8 +44,13 @@ const Reserve = () => {
             </small>
           </div>
           <div className='reserve--container--buttons'>
-            <button className='btn btn--transparent'>Location</button>
-            <button className='btn btn--white'>Book Now</button>
+            <div className='d-flex justify-content-center'>
+              <form onSubmit={handleBookNow}>
+                <button type='submit' className='btn btn--white'>
+                  Book Now
+                </button>
+              </form>
+            </div>
           </div>
         </main>
       </div>
