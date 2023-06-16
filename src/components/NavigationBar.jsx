@@ -8,7 +8,7 @@ const NavigationBar = () => {
   const [isHoverable, setIsHoverable] = useState(true);
   const [isClosed, setIsClosed] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
-
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
   // Function to toggle the lock state of the sidebar
   const toggleLock = () => {
@@ -35,6 +35,7 @@ const NavigationBar = () => {
   // Function to show and hide the sidebar
   const toggleSidebar = () => {
     setIsClosed(!isClosed);
+    setIsNavbarVisible(!isNavbarVisible);
   };
 
   // If the window width is less than 800px, close the sidebar and remove hoverability and lock
@@ -100,9 +101,11 @@ const NavigationBar = () => {
       </div>
     </nav>
 
-    <nav className="navbar flex">
-      <i className="bx bx-menu" onClick={toggleSidebar}></i>
-    </nav>
+    {isNavbarVisible && (
+      <nav className="navbar flex">
+        <i className="bx bx-menu" onClick={toggleSidebar}></i>
+      </nav>
+    )}
     </>
   );
 }

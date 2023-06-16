@@ -202,6 +202,13 @@ body {
   margin-left: 20px;
 }
 
+
+.bx-x,
+.navbar .bx-menu {
+  display: none;
+}
+
+
 /* Responsive */
 @media screen and (max-width: 1100px) {
   .navbar {
@@ -214,6 +221,7 @@ body {
   .sidebar {
     left: 0;
     z-index: 1000;
+  
   }
 
   .sidebar.close {
@@ -235,6 +243,14 @@ body {
   }
 
   #sidebar-open {
+    display: block;
+  }
+
+  .navbar .bx-menu {
+    display: block;
+  }
+
+  .bx-x{
     display: block;
   }
 }
