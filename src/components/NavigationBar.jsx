@@ -7,6 +7,8 @@ const NavigationBar = () => {
   const [isLocked, setIsLocked] = useState(true);
   const [isHoverable, setIsHoverable] = useState(true);
   const [isClosed, setIsClosed] = useState(true);
+  const [isHovering, setIsHovering] = useState(false);
+
 
   // Function to toggle the lock state of the sidebar
   const toggleLock = () => {
@@ -16,6 +18,7 @@ const NavigationBar = () => {
   
   // Function to hide the sidebar when the mouse leaves
   const hideSidebar = () => {
+    setIsHovering(false);
     if (isHoverable) {
       setIsClosed(true);
     }
@@ -23,6 +26,7 @@ const NavigationBar = () => {
 
   // Function to show the sidebar when the mouse enters
   const showSidebar = () => {
+    setIsHovering(true);
     if (isHoverable) {
       setIsClosed(false);
     }
@@ -50,7 +54,9 @@ const NavigationBar = () => {
           <img src="images/logo.png" alt="logo_img" />
         </span>
         <span className="logo_name">AirBnB</span>
-        <i className={`bx ${isLocked ? 'bx-lock-open-alt' : 'bx-lock-alt'}`} onClick={toggleLock} title="Unlock Sidebar"></i>
+        {isHovering && (
+          <i className={`bx ${isLocked ? 'bx-lock-open-alt' : 'bx-lock-alt'}`} onClick={toggleLock} title="Unlock Sidebar"></i>
+        )}
         <i className="bx bx-x" onClick={toggleSidebar}></i>
       </div>
 
