@@ -25,8 +25,9 @@ const delPlace = createAsyncThunk('places/delPlace',
       headers: {
         'Content-Type': 'application/json',
       },
-    });
-    return id;
+    });    
+    const placeId = parseInt(id)    
+    return placeId;
   });
 
 const initialState = [];
@@ -40,9 +41,7 @@ const placesSlice = createSlice({
       .addCase(fetchPlacesAsync.fulfilled, (state, action) => (
         [...action.payload]
       ))
-      .addCase(delPlace.fulfilled, (state, action) =>
-  state.filter((place) => place.id !== action.payload)
-)
+      .addCase(delPlace.fulfilled, (state, action) => state.filter((place) => place.id !== action.payload))
     },
 });
 

@@ -1,13 +1,10 @@
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { delPlace } from "../redux/places/placesSlice";
 
 const Place = ({placeId, description, location, rate}) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const handler = (elem) => {
-    dispatch(delPlace(elem.id));
-    navigate('/deleteplace')
+  const handler = (elem) => {    
+    dispatch(delPlace(elem.id)); 
   };
   return (
     <div className="card">

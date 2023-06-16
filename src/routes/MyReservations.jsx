@@ -6,9 +6,9 @@ import ReservationsContainer from '../components/ReservationsContainer';
 const MyReservations = () => {
   const dispatch = useDispatch();
   const {isLoading } = useSelector((state)=>state.reservations)
-
+  const userId = useSelector(state => state.login.userId)
   useEffect(() => {
-    dispatch(getReservations());
+    dispatch(getReservations(userId));
   }, [dispatch]);
 
   if (isLoading) {

@@ -1,19 +1,13 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { useDispatch } from "react-redux";
-import { fetchPlacesAsync } from '../redux/places/placesSlice';
 import Place from './Place';
 
 const PlaceContainer = () => {
   const places = useSelector((state) => state.places);
-  const dispatch = useDispatch();  
   
-  useEffect(() => {
-    dispatch(fetchPlacesAsync());
-  }, [dispatch]);
   return (
-    <div>
-      {places.map((item) => (
+    <div>      
+      {places.map((item) => (        
         <Place
           key={item.id}          
           description={item.description}

@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
 
-const userId = 6;
-const getUrl = `http://localhost:3000//api/v1/users/${userId}/reservations`
+
 export const getReservations = createAsyncThunk('reservations/getReservations',
-  async () => {
+  async (userId) => {
+    const getUrl = `http://localhost:3000//api/v1/users/${userId}/reservations`
     try {
       const response = await fetch(getUrl);
       const data = await response.json();
