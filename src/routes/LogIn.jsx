@@ -36,7 +36,7 @@ const LogIn = () => {
                 id='name'
                 name='name'
                 placeholder='Username'
-                value={name}
+                value={userName}
                 onChange={(e) => setUserName(e.target.value)}
                 className='form-control'
               />
