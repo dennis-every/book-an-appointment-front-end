@@ -11,7 +11,11 @@ const DeletePlace = () => {
   }, [dispatch]);
 
   return (
-    <PlaceContainer />
+    <>
+      <h2>DELETE PLACE</h2>
+      <p>To delete a place please select it and click on the Remove Place button.</p>
+      <PlaceContainer />
+    </>   
   )
 }
 
