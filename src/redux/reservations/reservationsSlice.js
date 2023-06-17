@@ -17,7 +17,7 @@ export const createReservation = createAsyncThunk(
       const response = await axios.post(URL, formData);
       return response.data;
     } catch (e) {
-      return rejectWithValue(e.message);
+      return rejectWithValue('An error occurred');
     }
   }
 );
@@ -30,18 +30,18 @@ const reservationsSlice = createSlice({
     builder
       .addCase(createReservation.pending, (state) => ({
         ...state,
-        isLoading: true,
+        ifLoading: true,
       }))
       .addCase(createReservation.fulfilled, (state, action) => ({
         ...state,
-        isLoading: false,
+        ifLoading: false,
         ifSucceed: true,
         reservationsItems: [...state.reservationsItems, action.payload],
       }))
-      .addCase(createReservation.rejected, (state, action) => ({
+      .addCase(createReservation.rejected, (state) => ({
         ...state,
-        isLoading: false,
-        errors: action.payload,
+        ifLoading: false,
+        errors: 'An error occurred',
       }));
   },
 });
