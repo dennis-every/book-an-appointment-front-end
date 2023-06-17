@@ -31,7 +31,6 @@ body {
 
 /* Sidebar */
 .sidebar {
-  position: fixed;
   top: 0;
   left: 0;
   z-index: 2;
@@ -202,12 +201,10 @@ body {
   margin-left: 20px;
 }
 
-
 .bx-x,
 .navbar .bx-menu {
   display: none;
 }
-
 
 /* Responsive */
 @media screen and (max-width: 1100px) {
@@ -220,8 +217,6 @@ body {
 @media screen and (max-width: 800px) {
   .sidebar {
     left: 0;
-    z-index: 1000;
-  
   }
 
   .sidebar.close {
@@ -250,7 +245,7 @@ body {
     display: block;
   }
 
-  .bx-x{
+  .bx-x {
     display: block;
   }
 }

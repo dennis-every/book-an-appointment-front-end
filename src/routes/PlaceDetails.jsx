@@ -35,7 +35,7 @@ const PlaceDetails = () => {
               <td colSpan="3">Kitchen TV Wifi </td>
             </tr>
             <tr>
-              <td className='fw-bold'  colSpan="3">{place.rate}$ <span className='fw-lighter' >night</span> </td>
+              <td className='fw-bold'  colSpan="3">${place.rate} <span className='fw-lighter' >night</span> </td>
             </tr>
           </tbody>
         </table>
