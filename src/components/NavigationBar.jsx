@@ -42,8 +42,8 @@ const NavigationBar = () => {
   useEffect(() => {
     if (window.innerWidth < 800) {
       setIsClosed(true);
-      setIsLocked(false);
-      setIsHoverable(false);
+      setIsLocked(true);
+      setIsHoverable(true);
     }
   }, []);
 
