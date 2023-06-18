@@ -89,10 +89,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: absolute;
   top: 50%;
-  left: 0;
-  right: 0;
+  width: 108%;
   box-sizing: border-box;
   transform: translateY(-50%);
 }
