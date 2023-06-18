@@ -185,6 +185,7 @@ body {
   padding: 10px 20px;
   border-radius: 0 0 8px 8px;
   justify-content: space-between;
+  display: none;
 }
 
 #sidebar-open {
@@ -236,6 +237,7 @@ body {
     left: 0;
     max-width: 100%;
     transform: translateX(0%);
+    display: block;
   }
 
   #sidebar-open {
