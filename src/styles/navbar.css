@@ -20,13 +20,7 @@ body {
   display: flex;
   min-width: 55px;
   justify-content: center;
-}
-
-.nav_image img {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-  object-fit: cover;
+  color: #ff385c;
 }
 
 /* Sidebar */
@@ -51,8 +45,10 @@ body {
 }
 
 .logo_name {
-  font-size: 22px;
-  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 2vh;
+  color: #ff385c;
   transition: all 0.3s ease;
 }
 

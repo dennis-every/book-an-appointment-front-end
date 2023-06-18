@@ -52,7 +52,7 @@ const NavigationBar = () => {
       <nav className={`sidebar ${isLocked ? 'locked' : ''} ${isClosed ? 'close' : ''}`} onMouseLeave={hideSidebar} onMouseEnter={showSidebar}>
       <div className="logo_items flex">
         <span className="nav_image">
-          <img src="images/logo.png" alt="logo_img" />
+          <i className='bx bxl-airbnb bx-lg' color='orange' ></i>
         </span>
         <span className="logo_name">AirBnB</span>
         {isHovering && (
