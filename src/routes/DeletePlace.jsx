@@ -12,24 +12,12 @@ const DeletePlace = () => {
 
   useEffect(() => {
     dispatch(fetchPlacesAsync());
-  }, [dispatch]);
-
-  //Fill the select tag
-  useEffect(() => {
-    const select = selectRef.current;    
-    select.innerHTML = '';
-    places.forEach(element => {
-      const option = document.createElement("option")      
-      option.textContent = element.location;      
-      option.value = element.id;
-      select.appendChild(option); 
-    });
-    
+    const select = selectRef.current;
     let sPlace = places.filter(place=> place.id === parseInt(select.value));
     setSelectedValue(sPlace[0]);    
-  }, [places]);
+  }, [dispatch]); 
 
-  const openModal = (place) => {       
+  const openModal = () => {       
     setIsModalOpen(true);
   };
 
@@ -46,9 +34,14 @@ const DeletePlace = () => {
     <>
       <h2>DELETE PLACE</h2>
       <p>To delete a place please select it and click on the Remove Place button.</p>
-      <select value={selectedValue} id="selectPlace" ref={selectRef} onChange={handlerChange}> 
+      <select id="selectPlace" ref={selectRef} onChange={handlerChange}> 
+        {places.map((place) => (
+          <option key={place.id} value={place.id}>
+            {place.location}
+          </option>
+        ))}
       </select>
-      <button className="btn btn-danger ms-2" onClick={() => openModal(selectedValue)}>Remove place</button>
+      <button className="btn btn-danger ms-2" onClick={() => openModal()}>Remove place</button>
       {isModalOpen && (
         <Place
           isOpen={isModalOpen}
