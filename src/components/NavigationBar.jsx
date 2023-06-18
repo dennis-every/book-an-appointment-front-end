@@ -42,8 +42,8 @@ const NavigationBar = () => {
   useEffect(() => {
     if (window.innerWidth < 800) {
       setIsClosed(true);
-      setIsLocked(true);
-      setIsHoverable(true);
+      setIsLocked(false);
+      setIsHoverable(false);
     }
   }, []);
 
@@ -56,46 +56,41 @@ const NavigationBar = () => {
         </span>
         <span className="logo_name">AirBnB</span>
         {isHovering && (
-          <i className={`bx ${isLocked ? 'bx-lock-open-alt' : 'bx-lock-alt'}`} onClick={toggleLock} title="Unlock Sidebar"></i>
+          <i className={`bx ${isLocked ? ' bx-md bx-lock-open-alt' : 'bx-md bx-lock-alt'}`} onClick={toggleLock} title="Unlock Sidebar"></i>
         )}
-        <i className="bx bx-x" onClick={toggleSidebar}></i>
+        <i className="bx bx-x bx-md" onClick={toggleSidebar}></i>
       </div>
 
       <div className="menu_container">
         <div className="menu_items">
           <ul className="menu_item">
-            <div className="menu_title flex">
-              <span className="title">Dashboard</span>
-              <span className="line"></span>
-            </div>
             <li className="item">
-              <Nav.Link className="link flex" as={NavLink} to="/"><i className="bx bx-home-alt"></i> Places</Nav.Link>
+              <Nav.Link className="link flex" as={NavLink} to="/" onClick={toggleSidebar} ><i className='bx bx-md bxs-building-house' ></i> Places</Nav.Link>
             </li>
             <li className="item">
-              <Nav.Link className="link flex" as={NavLink} to="/reserve"><i className="bx bx-home-alt"></i> Reserve</Nav.Link>
+              <Nav.Link className="link flex" as={NavLink} to="/reserve" onClick={toggleSidebar} ><i className='bx bx-md bx-calendar-check bx-tada' ></i> Reserve</Nav.Link>
             </li>
             <li className="item">
-              <Nav.Link className="link flex" as={NavLink} to="/myreservations"><i className="bx bx-home-alt"></i> My Reservations</Nav.Link>
+              <Nav.Link className="link flex" as={NavLink} to="/myreservations" onClick={toggleSidebar} ><i className='bx bx-md bx-list-check' ></i> My Reservations</Nav.Link>
             </li>
             <li className="item">
-              <Nav.Link className="link flex" as={NavLink} to="/deleteplace"><i className="bx bx-home-alt"></i> Delete Place</Nav.Link>
+              <Nav.Link className="link flex" as={NavLink} to="/deleteplace" onClick={toggleSidebar} ><i className='bx bx-md bx-bookmark-minus' ></i> Delete Place</Nav.Link>
             </li>
             <li className="item">
-              <Nav.Link className="link flex" as={NavLink} to="/addplace"><i className="bx bx-home-alt"></i> Add Place</Nav.Link>
+              <Nav.Link className="link flex" as={NavLink} to="/addplace" onClick={toggleSidebar} ><i className='bx bx-md bx-location-plus' ></i> Add Place</Nav.Link>
             </li>
             <li className="item">
-              <Nav.Link className="link flex" as={NavLink} to="/login"><i className="bx bx-home-alt"></i> Log In</Nav.Link>
+              <Nav.Link className="link flex" as={NavLink} to="/login" onClick={toggleSidebar} ><i className='bx bx-md bx-log-in' ></i> Log In</Nav.Link>
             </li>
           </ul>
         </div>
 
         <div className="sidebar_profile flex">
           <span className="nav_image">
-            <img src="images/profile.jpg" alt="logo_img" />
+            <i className='bx bx-md bxs-user-circle'></i>
           </span>
           <div className="d-flex flex-column data_text">
-            <span className="name">Nilton Segura</span>
-            <span className="email">nseguralu@gmail.com</span>
+            <span className="name">Nilton</span>
           </div>
         </div>
       </div>
@@ -103,7 +98,7 @@ const NavigationBar = () => {
 
     {isNavbarVisible && (
       <nav className="navbar flex">
-        <i className="bx bx-menu" onClick={toggleSidebar}></i>
+        <i className="bx bx-md bx-menu" onClick={toggleSidebar}></i>
       </nav>
     )}
     </>
