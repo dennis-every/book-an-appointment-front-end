@@ -250,3 +250,9 @@ body {
     display: block;
   }
 }
+
+.capital-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 2vh;
+}
