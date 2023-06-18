@@ -4,8 +4,7 @@ import { fetchPlacesAsync } from '../redux/places/placesSlice';
 import Place from '../components/Place';
 
 const DeletePlace = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPlace, setSelectedPlace] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);  
   const [selectedValue, setSelectedValue] = useState('');
   const dispatch = useDispatch();
   const places = useSelector((state) => state.places);
@@ -27,13 +26,10 @@ const DeletePlace = () => {
     });
     
     let sPlace = places.filter(place=> place.id === parseInt(select.value));
-    setSelectedValue(sPlace[0]);
-    console.log(`Selected value (useEffect fill) ${selectedValue}`)
+    setSelectedValue(sPlace[0]);    
   }, [places]);
 
-  const openModal = (place) => {
-    console.log(`Place inside modal ${place} ---`)
-    setSelectedPlace(place);
+  const openModal = (place) => {       
     setIsModalOpen(true);
   };
 
@@ -41,13 +37,10 @@ const DeletePlace = () => {
     setIsModalOpen(false);
   };
 
-  const handlerChange = (event) => {
-    console.log(`Handler change ${event.target.value}`)
-    let sPlace = places.filter(place=> place.id === parseInt(event.target.value));
-    console.log(sPlace)
+  const handlerChange = (event) => {    
+    let sPlace = places.filter(place=> place.id === parseInt(event.target.value));    
     setSelectedValue(sPlace[0]);
   }  
-  console.log("selected value=", selectedValue)
   
   return (
     <>
@@ -63,7 +56,7 @@ const DeletePlace = () => {
           placeId={selectedValue.id}
           description={selectedValue.description}
           location={selectedValue.location}
-          rate={selectedPlace.rate}
+          rate={selectedValue.rate}
         />
       )}
     </>   
