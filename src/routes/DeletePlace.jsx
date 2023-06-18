@@ -15,7 +15,7 @@ const DeletePlace = () => {
     const select = selectRef.current;
     let sPlace = places.filter(place=> place.id === parseInt(select.value));
     setSelectedValue(sPlace[0]);    
-  }, [dispatch]); 
+  }, [dispatch, places]);
 
   const openModal = () => {       
     setIsModalOpen(true);
