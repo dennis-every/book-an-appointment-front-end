@@ -1,4 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+const initialState = {
+  reservations: [],
+  ifSucceed: false,
+  isLoading: false,
+  errors: null,
+};
 
 export const getReservations = createAsyncThunk('reservations/getReservations',
   async (userId) => {
@@ -12,18 +20,43 @@ export const getReservations = createAsyncThunk('reservations/getReservations',
     }
   });
 
-const initialState = {
-  reservations: [],
-  isLoading: true,
-};
+const URL = 'http://localhost:3000/api/v1/reservations';
+
+
+
+export const createReservation = createAsyncThunk(
+  'reservations/createReservation',
+  async (formData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(URL, formData);
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
+  }
+);
 
 const reservationsSlice = createSlice({
   name: 'reservations',
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(createReservation.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
+      .addCase(createReservation.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        ifSucceed: true,
+        reservations: [...state.reservations, action.payload],
+      }))
+      .addCase(createReservation.rejected, (state, action) => ({
+        ...state,
+        isLoading: false,
+        errors: action.payload,
+      }))
       .addCase(getReservations.pending, (state) => ({
         ...state,
         isLoading: true,
@@ -37,7 +70,7 @@ const reservationsSlice = createSlice({
         ...state,
         isLoading: false,
       }));
-  },
+  },  
 });
 
 export default reservationsSlice.reducer;
