@@ -1,7 +1,5 @@
-const AddPlace = () => {
-  return (
-    <div>AddPlace</div>
-  )
-}
+const AddPlace = () => (
+  <div>AddPlace</div>
+);
 
-export default AddPlace
+export default AddPlace;
