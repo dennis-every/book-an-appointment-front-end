@@ -69,7 +69,7 @@ const NavigationBar = () => {
           {isHovering && (
           <button type="button" aria-label="Unlock Sidebar" className={`bx ${isLocked ? ' bx-md bx-lock-open-alt' : 'bx-md bx-lock-alt'} no-style-button`} onClick={toggleLock} title="Unlock Sidebar" />
           )}
-          <button type="button" aria-label="Close Sidebar" className="bx bx-x bx-md" onClick={toggleSidebar} />
+          <button type="button" aria-label="Close Sidebar" className="no-style-button bx bx-x bx-md" onClick={toggleSidebar} />
         </div>
 
         <div className="menu_container">
