@@ -31,6 +31,24 @@ const addPlaceAsync = createAsyncThunk(
   },
 );
 
+// Remove place
+const delPlace = createAsyncThunk('places/delPlace',
+  async (id) => {
+    try {
+      const deleteUrl = `${placesURL}/${id}`;
+      await fetch(deleteUrl, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const placeId = parseInt(id, 10);
+      return placeId;
+    } catch (error) {
+      return error.message();
+    }
+  });
+
 const initialState = [];
 
 const placesSlice = createSlice({
@@ -44,10 +62,12 @@ const placesSlice = createSlice({
       ))
       .addCase(addPlaceAsync.fulfilled, (state, action) => (
         [...state, { ...action.payload }]
-      ));
+      ))
+      .addCase(delPlace.fulfilled,
+        (state, action) => state.filter((place) => place.id !== action.payload));
   },
 });
 
-export { fetchPlacesAsync, addPlaceAsync };
+export { fetchPlacesAsync, addPlaceAsync, delPlace };
 
 export default placesSlice.reducer;

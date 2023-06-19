@@ -1,14 +1,26 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-const URL = 'http://localhost:3000/api/v1/reservations';
 
 export const initialState = {
   reservationsItems: [],
   ifSucceed: false,
-  ifLoading: false,
+  isLoading: false,
   errors: null,
 };
+
+export const getReservations = createAsyncThunk('reservations/getReservations',
+  async (userId) => {
+    const getUrl = `http://localhost:3000//api/v1/users/${userId}/reservations`;
+    try {
+      const response = await fetch(getUrl);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return error.message();
+    }
+  });
+
+const URL = 'http://localhost:3000/api/v1/reservations';
 
 export const createReservation = createAsyncThunk(
   'reservations/createReservation',
@@ -40,8 +52,21 @@ const reservationsSlice = createSlice({
       }))
       .addCase(createReservation.rejected, (state) => ({
         ...state,
-        ifLoading: false,
+        isLoading: false,
         errors: 'An error occurred',
+      }))
+      .addCase(getReservations.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
+      .addCase(getReservations.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        reservationsItems: action.payload,
+      }))
+      .addCase(getReservations.rejected, (state) => ({
+        ...state,
+        isLoading: false,
       }));
   },
 });
