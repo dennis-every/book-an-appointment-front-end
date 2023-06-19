@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPlaceAsync } from '../redux/places/placesSlice';
 import { useNavigate } from 'react-router-dom'; // Updated import statement // Updated import statement
-import '../styles/addplace.css';
+import '../styles/addplace.scss';
 
 const Form = () => {
   const [photo, setPhoto] = useState('');
