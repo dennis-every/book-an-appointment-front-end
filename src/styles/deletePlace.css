@@ -1,11 +1,70 @@
 .delete-place {
-  background: url('./images/imageedit_8_8856664173.jpg') no-repeat center center fixed;
+  background: no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  position: relative;;
-  height: 100vh;  
+  position: relative;; 
+}
+
+.empty-places {
+  background-color: #96bf02;
+}
+
+.Open-sans {
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.4rem;
+  color: #fff;
+}
+
+.title-line {
+  height: 1px;
+  background: #fff;
+  width: 300px;
+}
+
+.main-p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: white;
+  max-width: 330px;
+}
+
+.selectAndButton {  
+  flex-direction: column;
+}
+
+.remove-button {
+  background-color: #96bf02;
+  border: 2px white;
+}
+
+.remove-button:hover {
+  background-color: #7c9c08;
+  border: 2px white;
+}
+
+.place-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: 'Open Sans', sans-serif;
+  color:#fff;
+  background-color: #96bf02;
+  border: 1px solid #fff;  
+  min-width: 50px; 
+}
+
+.place-select option {
+  background-color: #96bf02;
+  color: #fff;
+}
+
+@media (min-width: 500px) {
+  .selectAndButton {  
+    flex-direction: row;
+    align-items: baseline;    
+  }
 }
 
 
