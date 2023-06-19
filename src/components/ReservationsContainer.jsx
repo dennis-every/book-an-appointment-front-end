@@ -2,10 +2,10 @@ import { useSelector } from 'react-redux';
 import Reservation from './Reservation';
 
 const ReservationsContainer = () => {
-  const { reservations } = useSelector((state) => state.reservations);
+  const { reservationsItems } = useSelector((state) => state.reservations);
   return (
     <div>
-      {reservations.map((item) => (
+      {reservationsItems.map((item) => (
         <Reservation
           key={item.id}
           startDate={item.start_date}
