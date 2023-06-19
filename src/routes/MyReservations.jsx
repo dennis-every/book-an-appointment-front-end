@@ -2,11 +2,13 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getReservations } from '../redux/reservations/reservationsSlice';
 import ReservationsContainer from '../components/ReservationsContainer';
+import ReservationsSlider from '../components/ReservationsSlider';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
-  const {isLoading } = useSelector((state)=>state.reservations)
-  const userId = useSelector(state => state.login.userId)
+  const { isLoading, reservations } = useSelector((state)=>state.reservations);
+  const userId = useSelector(state => state.login.userId);
+  const itemsPerPage = 3;
     
   if (userId===null) {
     return (
@@ -27,7 +29,7 @@ const MyReservations = () => {
   }
 
   return (
-    <ReservationsContainer />
+    <ReservationsSlider itemsPerPage={itemsPerPage} itemList={reservations} />
   )
 }
 
