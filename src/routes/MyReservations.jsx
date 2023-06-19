@@ -7,6 +7,15 @@ const MyReservations = () => {
   const dispatch = useDispatch();
   const {isLoading } = useSelector((state)=>state.reservations)
   const userId = useSelector(state => state.login.userId)
+    
+  if (userId===null) {
+    return (
+      <div className='d-flex flex-column justify-content-center align-items-center vh-100 empty-places'>
+        <h2 className='mb-3 fs-3 fw-bold text-white Open-sans '>There is no user logged in.</h2>
+      </div>
+    )
+  }
+
   useEffect(() => {
     dispatch(getReservations(userId));
   }, [dispatch]);
