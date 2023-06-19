@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  reservations: [],
+  reservationsItems: [],
   ifSucceed: false,
   isLoading: false,
   errors: null,
@@ -48,12 +48,12 @@ const reservationsSlice = createSlice({
         ...state,
         ifLoading: false,
         ifSucceed: true,
-        reservations: [...state.reservations, action.payload],
+        reservationsItems: [...state.reservationsItems, action.payload],
       }))
       .addCase(createReservation.rejected, (state) => ({
         ...state,
         isLoading: false,
-        errors: action.payload,
+        errors: 'An error occurred',
       }))
       .addCase(getReservations.pending, (state) => ({
         ...state,
@@ -62,7 +62,7 @@ const reservationsSlice = createSlice({
       .addCase(getReservations.fulfilled, (state, action) => ({
         ...state,
         isLoading: false,
-        reservations: action.payload,
+        reservationsItems: action.payload,
       }))
       .addCase(getReservations.rejected, (state) => ({
         ...state,

@@ -22,7 +22,7 @@ const Reservation = ({
         Bill: $
         {bill}
       </h5>
-      <a href="#" className="btn btn-primary">Details</a>
+
     </div>
   </div>
 );

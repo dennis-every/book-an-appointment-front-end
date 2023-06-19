@@ -33,7 +33,7 @@ const PlaceModal = ({
         </p>
         <div className="modal-btns">
           <button className="btn btn-danger rounded-5 ms-4 mt-3 remove-button-red" id={placeId} type="button" onClick={({ target }) => handler(target)}>Remove place</button>
-          <button className="btn btn-danger rounded-5 ms-4 mt-3 remove-button" onClick={onClose}>Close</button>
+          <button type="button" className="btn btn-danger rounded-5 ms-4 mt-3 remove-button" onClick={onClose}>Close</button>
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ const DeletePlace = () => {
 
   useEffect(() => {
     const select = selectRef.current;
-    const sPlace = places.filter((place) => place.id === parseInt(select.value));
+    const sPlace = places.filter((place) => place.id === parseInt(select.value, 10));
     setSelectedValue(sPlace[0]);
   }, [places]);
 
@@ -30,7 +30,7 @@ const DeletePlace = () => {
   };
 
   const handlerChange = (event) => {
-    const sPlace = places.filter((place) => place.id === parseInt(event.target.value));
+    const sPlace = places.filter((place) => place.id === parseInt(event.target.value, 10));
     setSelectedValue(sPlace[0]);
   };
 
@@ -64,7 +64,7 @@ const DeletePlace = () => {
             </option>
           ))}
         </select>
-        <button className="btn btn-danger rounded-5 ms-4 mt-3 remove-button" onClick={() => openModal()}>Remove Place</button>
+        <button type="button" className="btn btn-danger rounded-5 ms-4 mt-3 remove-button" onClick={() => openModal()}>Remove Place</button>
       </div>
       {isModalOpen && (
         <PlaceModal
