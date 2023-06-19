@@ -10,7 +10,7 @@ const ReservationsContainer = () => {
           key={item.id}          
           startDate={item.start_date}
           endDate={item.end_date}
-          bill={item.bill}
+          bill={parseFloat(item.bill)}
           placeId={item.place_id}          
         />
       ))}
