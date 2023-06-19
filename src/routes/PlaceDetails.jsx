@@ -36,8 +36,8 @@ const PlaceDetails = () => {
             </tr>
             <tr>
               <td className="fw-bold" colSpan="3">
-                {place.rate}
                 $
+                {place.rate}
                 {' '}
                 <span className="fw-lighter">night</span>
                 {' '}
@@ -59,7 +59,7 @@ const PlaceDetails = () => {
         </div>
       </section>
       <div className="button-boxleft buttonBackPos">
-        <button type="button" aria-label="ButtonLeft" className="pagination-button" onClick={handleBackClick}>
+        <button type="button" className="no-style-button pagination-button" onClick={handleBackClick}>
           <Icon color="#fff" icon="bx:left-arrow" />
         </button>
       </div>

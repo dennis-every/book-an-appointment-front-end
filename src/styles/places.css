@@ -33,6 +33,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
+  padding-left: 0;
 }
 
 .each-item {
@@ -40,6 +41,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-inline-start: 0;
 }
 
 .place-wrapper {
@@ -89,10 +91,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: absolute;
   top: 50%;
-  left: 0;
-  right: 0;
+  width: 108%;
   box-sizing: border-box;
   transform: translateY(-50%);
 }
