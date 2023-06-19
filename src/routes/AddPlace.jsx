@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPlaceAsync } from '../redux/places/placesSlice';
 import { useNavigate } from 'react-router-dom'; // Updated import statement // Updated import statement
+import { addPlaceAsync } from '../redux/places/placesSlice';
 import '../styles/addplace.scss';
 
 const Form = () => {
@@ -12,8 +12,8 @@ const Form = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
-  const loggedInUser = useSelector((state) => state.login.userId); // Access the user's ID from the loginSlice
+
+  const loggedInUser = useSelector((state) => state.login.userId);
 
   const addPlacehandler = (e) => {
     e.preventDefault();

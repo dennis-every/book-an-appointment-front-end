@@ -19,7 +19,7 @@ export const createReservation = createAsyncThunk(
     } catch (e) {
       return rejectWithValue(e.message);
     }
-  }
+  },
 );
 
 const reservationsSlice = createSlice({
