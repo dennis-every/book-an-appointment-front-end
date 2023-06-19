@@ -1,7 +1,5 @@
-const MyReservations = () => {
-  return (
-    <div>MyReservations</div>
-  )
-}
+const MyReservations = () => (
+  <div>MyReservations</div>
+);
 
-export default MyReservations
+export default MyReservations;
