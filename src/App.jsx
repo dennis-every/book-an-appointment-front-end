@@ -8,13 +8,15 @@ import Places from './routes/Places'
 import NotMatch from './routes/NotMatch';
 import Layout from './components/Layout';
 import LogIn from './routes/LogIn';
+import PlaceDetails from './routes/PlaceDetails';
 
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Places />} />        
+        <Route index element={<Places />} />
+        <Route path="/places/:id" element={<PlaceDetails/>} />       
         <Route path="addplace" element={<AddPlace />} />
         <Route path="deleteplace" element={<DeletePlace />} />
         <Route path="myreservations" element={<MyReservations />} />
