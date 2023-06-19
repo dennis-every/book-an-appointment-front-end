@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { delPlace } from "../redux/places/placesSlice";
 import '../styles/placeModal.css';
 
-const Place = ({isOpen, onClose, placeId, description, location, rate}) => {
+const PlaceModal = ({isOpen, onClose, placeId, description, location, rate}) => {
   const dispatch = useDispatch();
   const handler = (elem) => {    
     dispatch(delPlace(elem.id));
@@ -24,11 +24,11 @@ const Place = ({isOpen, onClose, placeId, description, location, rate}) => {
   )
 }
 
-Place.propTypes = {
+PlaceModal.propTypes = {
   placeId: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   rate: PropTypes.number.isRequired,
 };
 
-export default Place;
+export default PlaceModal;
