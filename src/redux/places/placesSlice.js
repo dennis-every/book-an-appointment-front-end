@@ -1,18 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-//Actions
+// Actions
 const FETCH_PLACES = 'final_capstone_frontend/places/FETCH_PLACES';
 
-//URL
+// URL
 const placesURL = 'http://127.0.0.1:3000/api/v1/places';
 
-//Async function
+// Async function
 const fetchPlacesAsync = createAsyncThunk(
   FETCH_PLACES,
-  async() => {
-    const response = await fetch(placesURL)
-    const output = await response.json()
-    return output
+  async () => {
+    const response = await fetch(placesURL);
+    const output = await response.json();
+    return output;
   },
 );
 

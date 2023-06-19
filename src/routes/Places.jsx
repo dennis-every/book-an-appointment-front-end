@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
-import { fetchPlacesAsync } from '../redux/places/placesSlice';
 import '../styles/places.css';
 import { Link } from 'react-router-dom';
 import { isMobileOnly } from 'react-device-detect';
+import { fetchPlacesAsync } from '../redux/places/placesSlice';
 
 const Place = ({ place }) => {
-  const { id, description, photo, location, rate } = place;
+  const {
+    id, description, photo, location, rate,
+  } = place;
 
   const socialMedia = () => {
     const socialMedia = ['ri:facebook-fill', 'mdi:twitter', 'mdi:instagram'];
@@ -18,7 +20,7 @@ const Place = ({ place }) => {
       social.push(
         <li className="social-cont" key={`${id}-${socialMedia[i]}`}>
           <Icon className="social-mini" color="#bbbbbb" icon={socialMedia[i]} />
-        </li>
+        </li>,
       );
     }
     return social;
@@ -38,7 +40,12 @@ const Place = ({ place }) => {
         </div>
       </Link>
       <p className="description">{description}</p>
-      <p className="rate">${rate} per night</p>
+      <p className="rate">
+        $
+        {rate}
+        {' '}
+        per night
+      </p>
       <ul className="social">{socialMedia()}</ul>
     </li>
   );
@@ -52,21 +59,20 @@ Place.propTypes = {
     photo: PropTypes.string,
     description: PropTypes.string,
   }).isRequired,
-  index: PropTypes.number.isRequired,
 };
 
-const WebPlaceList = ({ places, currentPage, handlePreviousPage, handleNextPage }) => {
+const WebPlaceList = ({
+  places, currentPage, handlePreviousPage, handleNextPage,
+}) => {
   const itemsPerPage = 3;
   const startIndex = currentPage * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, places.length);
 
-  const createList = () => {
-    return places
-      .slice(startIndex, endIndex)
-      .map((place, index) => (
-        <Place place={place} index={startIndex + index} key={place.id} />
-      ));
-  };
+  const createList = () => places
+    .slice(startIndex, endIndex)
+    .map((place, index) => (
+      <Place place={place} index={startIndex + index} key={place.id} />
+    ));
 
   return (
     <div className="place-list-container">
@@ -76,6 +82,7 @@ const WebPlaceList = ({ places, currentPage, handlePreviousPage, handleNextPage 
           className={`button-boxleft ${currentPage === 0 ? 'disabled' : ''}`}
         >
           <button
+            type="button"
             className="pagination-button"
             disabled={currentPage === 0}
             onClick={handlePreviousPage}
@@ -89,6 +96,7 @@ const WebPlaceList = ({ places, currentPage, handlePreviousPage, handleNextPage 
           }`}
         >
           <button
+            type="button"
             className="pagination-button"
             disabled={places.length <= (currentPage + 1) * 3}
             onClick={handleNextPage}
@@ -102,26 +110,40 @@ const WebPlaceList = ({ places, currentPage, handlePreviousPage, handleNextPage 
 };
 
 WebPlaceList.propTypes = {
-  places: PropTypes.array.isRequired,
+  places: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      location: PropTypes.string,
+      rate: PropTypes.number,
+      photo: PropTypes.string,
+      description: PropTypes.string,
+    }),
+  ).isRequired,
   currentPage: PropTypes.number.isRequired,
   handlePreviousPage: PropTypes.func.isRequired,
   handleNextPage: PropTypes.func.isRequired,
 };
 
-const MobilePlaceList = ({ places }) => {
-  return (
-    <div className="place-list-container">
-      <ul className="list">
-        {places.map((place, index) => (
-          <Place place={place} index={index} key={place.id} />
-        ))}
-      </ul>
-    </div>
-  );
-};
+const MobilePlaceList = ({ places }) => (
+  <div className="place-list-container">
+    <ul className="list">
+      {places.map((place, index) => (
+        <Place place={place} index={index} key={place.id} />
+      ))}
+    </ul>
+  </div>
+);
 
 MobilePlaceList.propTypes = {
-  places: PropTypes.array.isRequired,
+  places: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      location: PropTypes.string,
+      rate: PropTypes.number,
+      photo: PropTypes.string,
+      description: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 const PlaceList = () => {
@@ -143,16 +165,15 @@ const PlaceList = () => {
 
   if (isMobileOnly) {
     return <MobilePlaceList places={places} />;
-  } else {
-    return (
-      <WebPlaceList
-        places={places}
-        currentPage={currentPage}
-        handlePreviousPage={handlePreviousPage}
-        handleNextPage={handleNextPage}
-      />
-    );
   }
+  return (
+    <WebPlaceList
+      places={places}
+      currentPage={currentPage}
+      handlePreviousPage={handlePreviousPage}
+      handleNextPage={handleNextPage}
+    />
+  );
 };
 
 const Places = () => (
