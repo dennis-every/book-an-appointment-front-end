@@ -10,7 +10,7 @@ const initialState = {
 
 export const getReservations = createAsyncThunk('reservations/getReservations',
   async (userId) => {
-    const getUrl = `http://localhost:3000//api/v1/users/${userId}/reservations`
+    const getUrl = `http://localhost:3000//api/v1/users/${userId}/reservations`;
     try {
       const response = await fetch(getUrl);
       const data = await response.json();
@@ -21,8 +21,6 @@ export const getReservations = createAsyncThunk('reservations/getReservations',
   });
 
 const URL = 'http://localhost:3000/api/v1/reservations';
-
-
 
 export const createReservation = createAsyncThunk(
   'reservations/createReservation',
@@ -70,7 +68,7 @@ const reservationsSlice = createSlice({
         ...state,
         isLoading: false,
       }));
-  },  
+  },
 });
 
 export default reservationsSlice.reducer;

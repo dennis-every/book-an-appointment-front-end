@@ -16,22 +16,22 @@ const fetchPlacesAsync = createAsyncThunk(
   },
 );
 
-//Remove place
+// Remove place
 const delPlace = createAsyncThunk('places/delPlace',
   async (id) => {
     try {
-    const deleteUrl = `${placesURL}/${id}`;
-    await fetch(deleteUrl, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });    
-    const placeId = parseInt(id)
-    return placeId;
-  }catch(error) {
-    return error.message();
-  }
+      const deleteUrl = `${placesURL}/${id}`;
+      await fetch(deleteUrl, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const placeId = parseInt(id);
+      return placeId;
+    } catch (error) {
+      return error.message();
+    }
   });
 
 const initialState = [];
@@ -45,8 +45,8 @@ const placesSlice = createSlice({
       .addCase(fetchPlacesAsync.fulfilled, (state, action) => (
         [...action.payload]
       ))
-      .addCase(delPlace.fulfilled, (state, action) => state.filter((place) => place.id !== action.payload))
-    },
+      .addCase(delPlace.fulfilled, (state, action) => state.filter((place) => place.id !== action.payload));
+  },
 });
 
 export { fetchPlacesAsync, delPlace };

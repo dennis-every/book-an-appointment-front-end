@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { getReservations } from '../redux/reservations/reservationsSlice';
 import ReservationsContainer from '../components/ReservationsContainer';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
-  const {isLoading } = useSelector((state)=>state.reservations)
-  const userId = useSelector(state => state.login.userId)
+  const { isLoading } = useSelector((state) => state.reservations);
+  const userId = useSelector((state) => state.login.userId);
   useEffect(() => {
     dispatch(getReservations(userId));
   }, [dispatch]);
@@ -19,7 +19,7 @@ const MyReservations = () => {
 
   return (
     <ReservationsContainer />
-  )
-}
+  );
+};
 
 export default MyReservations;
