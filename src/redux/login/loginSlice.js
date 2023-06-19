@@ -20,7 +20,7 @@ export const submitLoginForm = createAsyncThunk(
     } catch (e) {
       return rejectWithValue(e.message);
     }
-  }
+  },
 );
 
 const loginSlice = createSlice({

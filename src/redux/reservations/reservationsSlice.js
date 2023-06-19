@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const URL = 'http://localhost:3000/api/v1/reservations';
 
-const initialState = {
+export const initialState = {
   reservationsItems: [],
   ifSucceed: false,
   ifLoading: false,
@@ -19,7 +19,7 @@ export const createReservation = createAsyncThunk(
     } catch (e) {
       return rejectWithValue('An error occurred');
     }
-  }
+  },
 );
 
 const reservationsSlice = createSlice({

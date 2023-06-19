@@ -19,17 +19,17 @@ const NavigationBar = () => {
             <Nav.Link as={NavLink} to="/reserve">Reserve</Nav.Link>
             <Nav.Link as={NavLink} to="/myreservations">My Reservations</Nav.Link>
             <Nav.Link as={NavLink} to="/deleteplace">Delete Place</Nav.Link>
-            <Nav.Link as={NavLink} to="/addplace">Add Place</Nav.Link>            
+            <Nav.Link as={NavLink} to="/addplace">Add Place</Nav.Link>
             {userId ? (
-            <>{userName}</>
+              <>{userName}</>
             ) : (
-            <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
+              <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
             )}
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-}
+};
 
 export default NavigationBar;
