@@ -4,7 +4,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  position: relative;; 
+  position: relative;
 }
 
 .empty-places {
@@ -30,7 +30,7 @@
   max-width: 330px;
 }
 
-.selectAndButton {  
+.selectAndButton {
   flex-direction: column;
 }
 
@@ -49,10 +49,10 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   font-family: 'Open Sans', sans-serif;
-  color:#fff;
+  color: #fff;
   background-color: #96bf02;
-  border: 1px solid #fff;  
-  min-width: 50px; 
+  border: 1px solid #fff;
+  min-width: 50px;
 }
 
 .place-select option {
@@ -61,10 +61,8 @@
 }
 
 @media (min-width: 500px) {
-  .selectAndButton {  
+  .selectAndButton {
     flex-direction: row;
-    align-items: baseline;    
+    align-items: baseline;
   }
 }
-
-

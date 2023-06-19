@@ -31,7 +31,6 @@ const DeletePlace = () => {
 
   const handlerChange = (event) => {    
     let sPlace = places.filter(place=> place.id === parseInt(event.target.value));    
-    console.log("Splace = ", splace)
     setSelectedValue(sPlace[0]);
   }
 

@@ -31,6 +31,8 @@ PlaceModal.propTypes = {
   description: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   rate: PropTypes.number.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default PlaceModal;
