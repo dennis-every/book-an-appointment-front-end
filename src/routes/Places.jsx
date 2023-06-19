@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
-import { fetchPlacesAsync } from '../redux/places/placesSlice';
 import '../styles/places.css';
 import { Link } from 'react-router-dom';
 import { isMobileOnly } from 'react-device-detect';
+import { fetchPlacesAsync } from '../redux/places/placesSlice';
 
 const Place = ({ place }) => {
   const {
@@ -59,7 +59,6 @@ Place.propTypes = {
     photo: PropTypes.string,
     description: PropTypes.string,
   }).isRequired,
-  index: PropTypes.number.isRequired,
 };
 
 const WebPlaceList = ({
@@ -83,6 +82,7 @@ const WebPlaceList = ({
           className={`button-boxleft ${currentPage === 0 ? 'disabled' : ''}`}
         >
           <button
+            type="button"
             className="pagination-button"
             disabled={currentPage === 0}
             onClick={handlePreviousPage}
@@ -96,6 +96,7 @@ const WebPlaceList = ({
           }`}
         >
           <button
+            type="button"
             className="pagination-button"
             disabled={places.length <= (currentPage + 1) * 3}
             onClick={handleNextPage}
@@ -109,7 +110,15 @@ const WebPlaceList = ({
 };
 
 WebPlaceList.propTypes = {
-  places: PropTypes.array.isRequired,
+  places: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      location: PropTypes.string,
+      rate: PropTypes.number,
+      photo: PropTypes.string,
+      description: PropTypes.string,
+    }),
+  ).isRequired,
   currentPage: PropTypes.number.isRequired,
   handlePreviousPage: PropTypes.func.isRequired,
   handleNextPage: PropTypes.func.isRequired,
@@ -126,7 +135,15 @@ const MobilePlaceList = ({ places }) => (
 );
 
 MobilePlaceList.propTypes = {
-  places: PropTypes.array.isRequired,
+  places: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      location: PropTypes.string,
+      rate: PropTypes.number,
+      photo: PropTypes.string,
+      description: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 const PlaceList = () => {
