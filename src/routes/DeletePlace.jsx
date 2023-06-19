@@ -1,7 +1,5 @@
-const DeletePlace = () => {
-  return (
-    <div>DeletePlace</div>
-  )
-}
+const DeletePlace = () => (
+  <div>DeletePlace</div>
+);
 
-export default DeletePlace
+export default DeletePlace;
