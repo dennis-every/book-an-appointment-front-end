@@ -75,10 +75,8 @@ const Reserve = () => {
                   Located in
                   {' '}
                   {place.location}
-                  {' '}
                   <br />
                   {place.description}
-                  {' '}
                   <br />
                   For only
                   {' '}
@@ -91,10 +89,10 @@ const Reserve = () => {
                 <div className="d-flex justify-content-center">
                   <form onSubmit={handleBookNow}>
                     <div className="mb-3">
-                      <label
-                        htmlFor="start_date"
-                        className="visually-hidden"
-                      />
+                      {
+                        // eslint-disable-next-line jsx-a11y/label-has-associated-control
+                        <label htmlFor="start_date" className="visually-hidden" />
+                      }
                       <DatePicker
                         id="start_date"
                         selected={startDate}
@@ -106,10 +104,10 @@ const Reserve = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label
-                        htmlFor="end_date"
-                        className="visually-hidden"
-                      />
+                      {
+                        // eslint-disable-next-line jsx-a11y/label-has-associated-control
+                        <label htmlFor="end_date" className="visually-hidden" />
+                      }
                       <DatePicker
                         id="end_date"
                         selected={endDate}
@@ -133,7 +131,10 @@ const Reserve = () => {
             </>
           ) : (
             <>
-              <label htmlFor="place" className="visually-hidden" />
+              {
+                // eslint-disable-next-line jsx-a11y/label-has-associated-control
+                <label htmlFor="place" className="visually-hidden" />
+              }
               <select
                 id="place"
                 className="form-select"
@@ -149,6 +150,7 @@ const Reserve = () => {
                     {place.location}
                     {' '}
                     -
+                    {' '}
                     {currency.format(place.rate)}
                   </option>
                 ))}
