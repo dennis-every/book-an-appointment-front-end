@@ -7,7 +7,7 @@ import '../styles/buttons.css';
 const PlaceDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const place = useSelector((state) => state.places.find((item) => item.id === parseInt(id)));
+  const place = useSelector((state) => state.places.find((item) => item.id === id));
 
   const handleReserveClick = () => {
     navigate('/reserve', { state: { place } });
