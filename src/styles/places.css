@@ -179,7 +179,7 @@
   display: flex;
   justify-content: center;
   gap: 15px;
-  padding-inline-start: 0;
+  padding-left: 0;
 }
 
 .social-cont {
