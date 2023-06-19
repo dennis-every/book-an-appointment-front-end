@@ -11,14 +11,16 @@ const PlaceModal = ({isOpen, onClose, placeId, description, location, rate}) => 
   };
   return (    
     <div className={`modal ${isOpen ? 'open' : ''}`}>
-      <div className="modal-content">
+      <div className="d-flex flex-column justify-content-center align-items-center text-center modal-content">
         <h2>Are you sure you want to delete this place?</h2>
         <p>ID: {placeId}</p>     
         <p>Description: {description}</p>
         <p>Location: {location}</p>
-        <p>Rate: {rate}</p>        
-        <button className="btn btn-danger mb-2 ms-2" id={placeId} type="button" onClick={({ target }) => handler(target)}>Remove place</button>
-        <button className="btn btn-primary mb-2 ms-2" onClick={onClose}>Close</button>   
+        <p>Rate: {rate}</p>
+        <div className='modal-btns'>
+          <button className="btn btn-danger rounded-5 ms-4 mt-3 remove-button-red" id={placeId} type="button" onClick={({ target }) => handler(target)}>Remove place</button>
+          <button className="btn btn-danger rounded-5 ms-4 mt-3 remove-button" onClick={onClose}>Close</button>   
+        </div>        
       </div>
     </div>
   )

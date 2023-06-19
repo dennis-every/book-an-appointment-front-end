@@ -33,7 +33,16 @@ const DeletePlace = () => {
     let sPlace = places.filter(place=> place.id === parseInt(event.target.value));    
     console.log("Splace = ", splace)
     setSelectedValue(sPlace[0]);
-  }  
+  }
+
+  if (selectedValue===undefined) {
+    return (
+      <div className='d-flex flex-column justify-content-center align-items-center vh-100 empty-places'>
+        <h2 className='mb-3 fs-3 fw-bold text-white Open-sans '>There is no places.</h2>
+      </div>
+    )
+      
+  }
   
   return (
     <div className="d-flex flex-column justify-content-center align-items-center vh-100 delete-place"

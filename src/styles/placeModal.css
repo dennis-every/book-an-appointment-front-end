@@ -15,8 +15,23 @@
   justify-content: center;
 }
 
-.modal-content {
-  background-color: white;
-  padding: 20px;
+.modal-content {  
+  background-image: linear-gradient(to left, #96bf02, #415204);
+  color: #fff;
+  padding: 25px;
   border-radius: 5px;
+}
+
+.modal-btns {
+  max-width: 300px;
+}
+
+.remove-button-red {
+  background-color: #bf3e02;
+  border: 2px white;
+}
+
+.remove-button-red:hover {
+  background-color: #96370c;
+  border: 2px white;
 }
