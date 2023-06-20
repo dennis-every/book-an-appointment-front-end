@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getReservations } from '../redux/reservations/reservationsSlice';
 import ReservationsContainer from '../components/ReservationsContainer';
 import ReservationsSlider from '../components/ReservationsSlider';
+import { isMobileOnly } from 'react-device-detect';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,11 @@ const MyReservations = () => {
     );
   }
 
+  if(isMobileOnly){    
+    return(
+      <ReservationsContainer />
+    )
+  }
   return (
     <ReservationsSlider itemsPerPage={itemsPerPage} itemList={reservations} />
   )

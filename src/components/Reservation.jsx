@@ -15,8 +15,8 @@ const Reservation = ({startDate, endDate, bill, reserveId, place}) => {
               <h2 className="location">Reserve ID: {reserveId}</h2>
             </div>
           
-          <p className="description">{startDate}</p>
-          <p className="description">{endDate}</p>      
+          <p className="description">Start Date: {startDate}</p>
+          <p className="description">End Date: {endDate}</p>      
           <p className="rate">${bill}</p>
     </li>
   )

@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
-import Reservation from './Reservation';
+import Reservation from './Reservation';  
+
 
 const ReservationsContainer = () => {
   const { reservations } = useSelector((state) => state.reservations);
-  const { userName } = useSelector((state) => state.login);
-  console.log(reservations);
+  const { userName } = useSelector((state) => state.login); 
 
   if (reservations.length===0) {
     return (
