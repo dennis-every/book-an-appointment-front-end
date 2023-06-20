@@ -14,6 +14,10 @@ const MyReservations = () => {
   const itemsPerPage = 3;
 
   useEffect(() => {
+    console.log("Mobile=", isMobileOnly);
+  },[isMobileOnly]
+  )
+  useEffect(() => {
     if (userId) {
       dispatch(getReservations(userId));
     }

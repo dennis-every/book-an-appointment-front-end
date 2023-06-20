@@ -39,7 +39,9 @@ Reservation.propTypes = {
   endDate: PropTypes.string.isRequired,
   bill: PropTypes.number.isRequired,
   reserveId: PropTypes.number.isRequired,
-  place: PropTypes.arrayOf.isRequired,
+  place: PropTypes.arrayOf(
+    PropTypes.object.isRequired
+  ).isRequired,
 };
 
 export default Reservation;
