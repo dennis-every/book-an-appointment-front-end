@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 const Reservation = ({startDate, endDate, bill, reserveId, place}) => {
-  console.log("Place=", place)
   return (
     <li className="each-item mb-4 mt-2">
   

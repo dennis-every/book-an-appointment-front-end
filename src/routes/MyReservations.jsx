@@ -7,14 +7,14 @@ import { isMobileOnly } from 'react-device-detect';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
-  const { isLoading, reservations } = useSelector((state)=>state.reservations);
+  const { isLoading, reservationsItems } = useSelector((state)=>state.reservations);
   const userId = useSelector(state => state.login.userId);
   const itemsPerPage = 3;
     
   if (userId===null) {
     return (
       <div className='d-flex flex-column justify-content-center align-items-center vh-100 empty-places'>
-        <h2 className='mb-3 fs-3 fw-bold text-white Open-sans '>There is no user logged in.</h2>
+        <h2 className='mb-3 fs-3 fw-bold text-white Open-sans ms-4 me-4 text-center'>There is no user logged in.</h2>
       </div>
     )
   }
@@ -29,14 +29,15 @@ const MyReservations = () => {
     );
   }
 
-  if(isMobileOnly){    
+  if(!isMobileOnly){    
     return(
-      <ReservationsContainer />
+      <ReservationsSlider itemsPerPage={itemsPerPage} itemList={reservationsItems} />
     )
-  }
+  }else {
   return (
-    <ReservationsSlider itemsPerPage={itemsPerPage} itemList={reservations} />
+    <ReservationsContainer />
   )
+  }
 }
 
 export default MyReservations;
