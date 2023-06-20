@@ -111,11 +111,21 @@ const NavigationBar = () => {
                 </Nav.Link>
               </li>
               <li className="item">
-                <Nav.Link className="link flex capital-text" as={NavLink} to="/login" onClick={toggleSidebar}>
-                  <i className="bx bx-sm bx-log-in" />
-                  {' '}
-                  LOG IN
-                </Nav.Link>
+                {userId ? (
+                  <>
+                    <Nav.Link className="link flex capital-text" href="/">
+                      <i className="bx bx-sm bx-log-out" />
+                      {' '}
+                      LOG OUT
+                    </Nav.Link>
+                  </>
+                ) : (
+                  <Nav.Link className="link flex capital-text" as={NavLink} to="/login" onClick={toggleSidebar}>
+                    <i className="bx bx-sm bx-log-in" />
+                    {' '}
+                    LOG IN
+                  </Nav.Link>
+                )}
               </li>
             </ul>
           </div>
@@ -128,7 +138,7 @@ const NavigationBar = () => {
               {userId ? (
                 <>{userName}</>
               ) : (
-                <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
+                <>Guest</>
               )}
             </div>
           </div>
@@ -137,7 +147,7 @@ const NavigationBar = () => {
 
       {isNavbarVisible && (
       <nav className="navbar flex">
-        <button type="button" aria-label="Hamburger" className="no-style-button bx bx-md bx-menu" onClick={toggleSidebar} onKeyDown={handleKeyDown} />
+        <button type="button" aria-label="Hamburger" className="no-style-button bx bx-md bx-menu ms-3" onClick={toggleSidebar} onKeyDown={handleKeyDown} />
       </nav>
       )}
     </>

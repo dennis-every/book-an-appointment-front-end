@@ -18,13 +18,13 @@ const PlaceDetails = () => {
   };
 
   return (
-    <div className="d-flex" style={{ width: '100vw', height: '100%' }}>
-      <section className="d-flex align-items-center justify-content-center" style={{ width: '70vw', height: '100vh' }}>
+    <div className="d-flex details-container">
+      <section className="d-flex align-items-center justify-content-center place-image">
         <div className="circleD" style={{ backgroundColor: 'beige' }}>
           <img src={place.photo} alt="" className="img" />
         </div>
       </section>
-      <section className="d-flex flex-column align-items-end me-5">
+      <section className="d-flex flex-column align-items-end info-details">
         <h2 className="mt-5 title">{place.location}</h2>
         <table className="table table-striped table-hover table-borderless text-end detailsText mt-5 fw-medium">
           <tbody>
@@ -51,7 +51,7 @@ const PlaceDetails = () => {
             <Icon icon="iconamoon:arrow-right-2-bold" color="#f7db59" width="20" height="20" />
           </Link>
         </div>
-        <div className="mt-5">
+        <div className="mt-5 reserve-mobile">
           <button type="button" className="btn btn-success btn-lg detailsText btn-radius buttonReserve d-flex align-items-center justify-content-center" onClick={handleReserveClick}>
             Reserve
             <Icon className="ms-3" icon="ri:arrow-right-circle-line" width="20" height="20" />
