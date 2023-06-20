@@ -5,6 +5,8 @@
   -o-background-size: cover;
   background-size: cover;
   position: relative;
+  width: 100vw;
+  height: 100vh;
 }
 
 .empty-places {
