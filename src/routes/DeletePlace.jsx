@@ -16,9 +16,11 @@ const DeletePlace = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    const select = selectRef.current;
-    const sPlace = places.filter((place) => place.id === parseInt(select.value, 10));
-    setSelectedValue(sPlace[0]);
+    if (places.length > 0) {
+      const select = selectRef.current;
+      const sPlace = places.filter((place) => place.id === parseInt(select.value, 10));
+      setSelectedValue(sPlace[0]);
+    }
   }, [places]);
 
   const openModal = () => {
@@ -44,7 +46,7 @@ const DeletePlace = () => {
 
   return (
     <div
-      className="d-flex flex-column justify-content-center align-items-center vh-100 delete-place"
+      className="d-flex flex-column justify-content-center align-items-center vh-100 empty-places delete-place "
       style={{
         backgroundImage: `linear-gradient(
       0deg,

@@ -37,7 +37,7 @@ describe('reservationsSlice', () => {
         initialState,
         createReservation.rejected(errorMessage),
       );
-      expect(nextState.ifLoading).toBe(false);
+      expect(nextState.isLoading).toBe(false);
       expect(nextState.errors).toBe(errorMessage);
     });
   });

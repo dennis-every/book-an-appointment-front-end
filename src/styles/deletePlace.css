@@ -11,6 +11,11 @@
 
 .empty-places {
   background-color: #96bf02;
+  width: 100%;
+}
+
+.my-reservations {
+  width: 80%;
 }
 
 .Open-sans {
