@@ -178,8 +178,6 @@ body {
   left: 60%;
   transform: translateX(-50%);
   background: #fff;
-  padding: 10px 20px;
-  border-radius: 0 0 8px 8px;
   justify-content: space-between;
   display: none;
 }
@@ -234,7 +232,8 @@ body {
     max-width: 100%;
     transform: translateX(0%);
     display: block;
-    height: 1vh;
+    height: auto;
+    padding: 0;
   }
 
   #sidebar-open {

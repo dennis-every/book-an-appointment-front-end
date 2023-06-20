@@ -137,7 +137,7 @@ const NavigationBar = () => {
 
       {isNavbarVisible && (
       <nav className="navbar flex">
-        <button type="button" aria-label="Hamburger" className="no-style-button bx bx-md bx-menu" onClick={toggleSidebar} onKeyDown={handleKeyDown} />
+        <button type="button" aria-label="Hamburger" className="no-style-button bx bx-md bx-menu ms-3" onClick={toggleSidebar} onKeyDown={handleKeyDown} />
       </nav>
       )}
     </>
