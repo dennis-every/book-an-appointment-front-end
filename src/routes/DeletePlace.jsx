@@ -16,9 +16,11 @@ const DeletePlace = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    const select = selectRef.current;
-    const sPlace = places.filter((place) => place.id === parseInt(select.value, 10));
-    setSelectedValue(sPlace[0]);
+    if (places.length > 0) {
+      const select = selectRef.current;
+      const sPlace = places.filter((place) => place.id === parseInt(select.value, 10));
+      setSelectedValue(sPlace[0]);
+    }
   }, [places]);
 
   const openModal = () => {
