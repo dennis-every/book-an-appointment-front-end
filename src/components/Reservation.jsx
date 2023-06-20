@@ -40,7 +40,7 @@ Reservation.propTypes = {
   bill: PropTypes.number.isRequired,
   reserveId: PropTypes.number.isRequired,
   place: PropTypes.arrayOf(
-    PropTypes.object.isRequired
+    PropTypes.object.isRequired,
   ).isRequired,
 };
 

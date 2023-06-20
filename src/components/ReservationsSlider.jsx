@@ -19,7 +19,7 @@ const ReservationsSlider = () => {
         startDate={item.start_date}
         endDate={item.end_date}
         bill={parseFloat(item.bill, 10)}
-        place={places.filter((place) => place.id === item.place_id)}        
+        place={places.filter((place) => place.id === item.place_id)}
         reserveId={item.id}
       />
     ));
