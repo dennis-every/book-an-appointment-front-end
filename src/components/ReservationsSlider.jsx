@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux';
 
 const ReservationsSlider = ({ itemsPerPage, itemList }) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const places = useSelector(state=> state.places)
+  const places = useSelector(state=> state.places);
+  const { userName } = useSelector((state) => state.login);
 
   const showItems = (page) => {
     const startIndex = page * itemsPerPage;
@@ -37,7 +38,7 @@ const ReservationsSlider = ({ itemsPerPage, itemList }) => {
 
   if (itemList.length===0) {
     return (
-      <div className='d-flex flex-column justify-content-center align-items-center vh-100 empty-places'>
+      <div className='d-flex flex-column justify-content-center text-center align-items-center vh-100 empty-places'>
         <h2 className='mb-3 fs-3 fw-bold text-white Open-sans '>You don't have reservations yet {userName}.</h2>
       </div>
     )

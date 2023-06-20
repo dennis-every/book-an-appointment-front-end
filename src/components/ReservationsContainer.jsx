@@ -9,7 +9,7 @@ const ReservationsContainer = () => {
   if (reservations.length===0) {
     return (
       <div className='d-flex flex-column justify-content-center align-items-center vh-100 empty-places'>
-        <h2 className='mb-3 fs-3 fw-bold text-white Open-sans '>You don't have reservations yet {userName}.</h2>
+        <h2 className='mb-3 fs-3 fw-bold text-white text-center Open-sans '>You don't have reservations yet {userName}.</h2>
       </div>
     )
   }
