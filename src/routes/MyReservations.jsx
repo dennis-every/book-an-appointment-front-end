@@ -12,7 +12,7 @@ const MyReservations = () => {
   const { isLoading, reservationsItems } = useSelector((state) => state.reservations);
   const userId = useSelector((state) => state.login.userId);
   const itemsPerPage = 3;
- 
+
   useEffect(() => {
     if (userId) {
       dispatch(getReservations(userId));
