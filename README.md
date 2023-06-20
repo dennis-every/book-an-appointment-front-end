@@ -66,8 +66,6 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running follow these simple example steps.
@@ -133,6 +131,9 @@ rails db:seed
 `
 
 ### Usage
+
+To test the app, you can login in with test user <b>John</b>.
+
 First, fire up the server at the backend with:
 
 rails server
@@ -142,15 +143,15 @@ Then, run the frontend with the following commands:
 
 `
 npm run dev
+`
 
-### Run tests
+### Run test
 
-To run tests, run the following command:
+To run tests, you can run command:
 
-
-```sh
-rspec
-```
+`
+npm test
+`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
