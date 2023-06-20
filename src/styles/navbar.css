@@ -211,7 +211,7 @@ body {
 
 @media screen and (max-width: 800px) {
   .sidebar {
-    position: absolute;
+    position: fixed;
     left: 0;
   }
 
