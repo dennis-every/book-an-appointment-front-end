@@ -1,16 +1,24 @@
 import PropTypes from 'prop-types';
-const Reservation = ({startDate, endDate, bill, placeId}) => {
+const Reservation = ({startDate, endDate, bill, reserveId, place}) => {
+  console.log("Place=", place)
   return (
-    <div className="card">
+    <li className="each-item mb-4 mt-2">
   
-  <div className="card-body">
-    <h5 className="card-title">Place: {placeId}</h5>
-    <p className="card-text">Start date: {startDate}</p>
-    <p className="card-text">End date: {endDate}</p>
-    <h5 className="card-title">Bill: ${bill}</h5>
-    <a href="#" className="btn btn-primary">Details</a>
-  </div>
-</div>
+      <div className="place-wrapper">
+              <div className="img-cont">
+                <div className="circle">
+                  <img src={place[0].photo} className="img" alt="Place" />
+                </div>
+              </div>
+              <h2 className="location">{place[0].location}</h2>
+              <p className="dots">....................</p>
+              <h2 className="location">Reserve ID: {reserveId}</h2>
+            </div>
+          
+          <p className="description">{startDate}</p>
+          <p className="description">{endDate}</p>      
+          <p className="rate">${bill}</p>
+    </li>
   )
 }
 
