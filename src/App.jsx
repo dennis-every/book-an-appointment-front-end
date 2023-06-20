@@ -10,7 +10,7 @@ import Layout from './components/Layout';
 import LogIn from './routes/LogIn';
 import PlaceDetails from './routes/PlaceDetails';
 
-function App() {
+const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
