@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { getReservations } from '../redux/reservations/reservationsSlice';
 import ReservationsContainer from '../components/ReservationsContainer';
 import ReservationsSlider from '../components/ReservationsSlider';

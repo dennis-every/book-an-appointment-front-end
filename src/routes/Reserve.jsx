@@ -52,7 +52,7 @@ const Reserve = () => {
 
   return (
     <section
-      className='reserve'
+      className="reserve"
       style={{
         backgroundImage: `linear-gradient(
         0deg,
@@ -61,59 +61,67 @@ const Reserve = () => {
       ), url(${place?.photo})`,
       }}
     >
-      <div className='reserve--container'>
+      <div className="reserve--container">
         <header>
-          <h1 className='text-uppercase text-center fs-3 mb-4 fw-bold'>
+          <h1 className="text-uppercase text-center fs-3 mb-4 fw-bold">
             Book a place
           </h1>
         </header>
         <main>
           {place ? (
             <>
-              <div className='text-center mb-4'>
+              <div className="text-center mb-4">
                 <small>
-                  Located in {place.location} <br />
-                  {place.description} <br />
-                  For only {currency.format(place.rate)} per night
+                  Located in
+                  {' '}
+                  {place.location}
+                  <br />
+                  {place.description}
+                  <br />
+                  For only
+                  {' '}
+                  {currency.format(place.rate)}
+                  {' '}
+                  per night
                 </small>
               </div>
-              <div className='reserve--container--form'>
-                <div className='d-flex justify-content-center'>
+              <div className="reserve--container--form">
+                <div className="d-flex justify-content-center">
                   <form onSubmit={handleBookNow}>
-                    <div className='mb-3'>
-                      <label
-                        htmlFor='start_date'
-                        className='visually-hidden'
-                      ></label>
+                    <div className="mb-3">
+                      {
+                        // eslint-disable-next-line jsx-a11y/label-has-associated-control
+                        <label htmlFor="start_date" className="visually-hidden" />
+                      }
                       <DatePicker
-                        id='start_date'
+                        id="start_date"
                         selected={startDate}
                         onChange={(date) => setStartDate(date)}
                         minDate={new Date(new Date().getTime() + 86400000)}
-                        className='form-control'
-                        placeholderText='Select a start date'
+                        className="form-control"
+                        placeholderText="Select a start date"
                         required
                       />
                     </div>
-                    <div className='mb-3'>
-                      <label
-                        htmlFor='end_date'
-                        className='visually-hidden'
-                      ></label>
+                    <div className="mb-3">
+                      {
+                        // eslint-disable-next-line jsx-a11y/label-has-associated-control
+                        <label htmlFor="end_date" className="visually-hidden" />
+                      }
                       <DatePicker
-                        id='end_date'
+                        id="end_date"
                         selected={endDate}
                         onChange={(date) => setEndDate(date)}
                         minDate={
                           startDate && new Date(startDate.getTime() + 86400000)
                         }
-                        className='form-control'
-                        placeholderText='Select an end date'
+                        className="form-control"
+                        placeholderText="Select an end date"
                         required
                       />
                     </div>
-                    <div className='d-grid'>
-                      <button type='submit' className='btn btn--white'>
+                    <div className="d-grid">
+                      <button type="submit" className="btn btn--white">
                         Book Now
                       </button>
                     </div>
@@ -123,20 +131,27 @@ const Reserve = () => {
             </>
           ) : (
             <>
-              <label htmlFor='place' className='visually-hidden'></label>
+              {
+                // eslint-disable-next-line jsx-a11y/label-has-associated-control
+                <label htmlFor="place" className="visually-hidden" />
+              }
               <select
-                id='place'
-                className='form-select'
+                id="place"
+                className="form-select"
                 onChange={handlePlaceChange}
-                defaultValue=''
+                defaultValue=""
                 required
               >
-                <option value='' disabled>
+                <option value="" disabled>
                   Please select a place
                 </option>
                 {places.map((place) => (
                   <option key={place.id} value={place.id}>
-                    {place.location} - {currency.format(place.rate)}
+                    {place.location}
+                    {' '}
+                    -
+                    {' '}
+                    {currency.format(place.rate)}
                   </option>
                 ))}
               </select>

@@ -26,7 +26,7 @@ Reservation.propTypes = {
   startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
   bill: PropTypes.number.isRequired,
-  placeId: PropTypes.number.isRequired,  
+  placeId: PropTypes.number.isRequired,
 };
 
-export default Reservation
+export default Reservation;
