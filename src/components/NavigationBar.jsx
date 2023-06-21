@@ -13,6 +13,22 @@ const NavigationBar = () => {
   const userId = useSelector((state) => state.login.userId);
   const userName = useSelector((state) => state.login.userName);
 
+  const getLoginLink = (userId) => {
+    if (userId) {
+      return { href: '/', icon: 'bx-sm bx-log-out', text: 'LOG OUT' };
+    }
+    return { to: '/login', icon: 'bx-sm bx-log-in', text: 'LOG IN' };
+  };
+
+  const navLinks = [
+    { to: '/', icon: 'bx-sm bxs-building-house', text: 'PLACES' },
+    { to: '/reserve', icon: 'bx-sm bx-calendar-check bx-tada', text: 'RESERVE' },
+    { to: '/myreservations', icon: 'bx-sm bx-list-check', text: 'MY RESERVATIONS' },
+    { to: '/deleteplace', icon: 'bx-sm bx-bookmark-minus', text: 'DELETE PLACE' },
+    { to: '/addplace', icon: 'bx-sm bx-location-plus', text: 'ADD PLACE' },
+    getLoginLink(userId),
+  ];
+
   // Function to toggle the lock state of the sidebar
   const toggleLock = () => {
     setIsLocked(!isLocked);
@@ -75,58 +91,23 @@ const NavigationBar = () => {
         <div className="menu_container">
           <div className="menu_items">
             <ul className="menu_item">
-              <li className="item">
-                <Nav.Link className="link flex capital-text" as={NavLink} to="/" onClick={toggleSidebar}>
-                  <i className="bx bx-sm bxs-building-house" />
-                  {' '}
-                  PLACES
-                </Nav.Link>
-              </li>
-              <li className="item">
-                <Nav.Link className="link flex capital-text" as={NavLink} to="/reserve" onClick={toggleSidebar}>
-                  <i className="bx bx-sm bx-calendar-check bx-tada" />
-                  {' '}
-                  RESERVE
-                </Nav.Link>
-              </li>
-              <li className="item">
-                <Nav.Link className="link flex capital-text" as={NavLink} to="/myreservations" onClick={toggleSidebar}>
-                  <i className="bx bx-sm bx-list-check" />
-                  {' '}
-                  MY RESERVATIONS
-                </Nav.Link>
-              </li>
-              <li className="item">
-                <Nav.Link className="link flex capital-text" as={NavLink} to="/deleteplace" onClick={toggleSidebar}>
-                  <i className="bx bx-sm bx-bookmark-minus" />
-                  {' '}
-                  DELETE PLACE
-                </Nav.Link>
-              </li>
-              <li className="item">
-                <Nav.Link className="link flex capital-text" as={NavLink} to="/addplace" onClick={toggleSidebar}>
-                  <i className="bx bx-sm bx-location-plus" />
-                  {' '}
-                  ADD PLACE
-                </Nav.Link>
-              </li>
-              <li className="item">
-                {userId ? (
-                  <>
-                    <Nav.Link className="link flex capital-text" href="/">
-                      <i className="bx bx-sm bx-log-out" />
+              {navLinks.map((link) => (
+                <li className="item" key={link.to || link.href}>
+                  {link.href ? (
+                    <Nav.Link className="link flex capital-text" href={link.href} onClick={toggleSidebar}>
+                      <i className={`bx ${link.icon}`} />
                       {' '}
-                      LOG OUT
+                      {link.text}
                     </Nav.Link>
-                  </>
-                ) : (
-                  <Nav.Link className="link flex capital-text" as={NavLink} to="/login" onClick={toggleSidebar}>
-                    <i className="bx bx-sm bx-log-in" />
-                    {' '}
-                    LOG IN
-                  </Nav.Link>
-                )}
-              </li>
+                  ) : (
+                    <Nav.Link className="link flex capital-text" as={NavLink} to={link.to} onClick={toggleSidebar}>
+                      <i className={`bx ${link.icon}`} />
+                      {' '}
+                      {link.text}
+                    </Nav.Link>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
 

@@ -18,7 +18,7 @@ const ReservationsContainer = () => {
   }
 
   return (
-    <div>
+    <div className="mt-5">
       {reservationsItems.map((item) => (
         <Reservation
           key={item.id}
