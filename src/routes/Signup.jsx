@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import { submitSignupForm } from '../redux/signup/signupSlice';
+import { submitSignupForm } from '../redux/users/usersSlice';
 import './Signup.scss';
 
 export const Signup = () => {

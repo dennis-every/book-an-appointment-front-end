@@ -20,7 +20,7 @@ const Reserve = () => {
   const dispatch = useDispatch();
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const userId = useSelector((state) => state.login.userId);
+  const userId = useSelector((state) => state.users.userId);
   const places = useSelector((state) => state.places);
 
   useEffect(() => {
@@ -91,7 +91,10 @@ const Reserve = () => {
                     <div className="mb-3">
                       {
                         // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                        <label htmlFor="start_date" className="visually-hidden" />
+                        <label
+                          htmlFor="start_date"
+                          className="visually-hidden"
+                        />
                       }
                       <DatePicker
                         id="start_date"
@@ -150,7 +153,6 @@ const Reserve = () => {
                     {place.location}
                     {' '}
                     -
-                    {' '}
                     {currency.format(place.rate)}
                   </option>
                 ))}

@@ -13,7 +13,7 @@ const Form = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const loggedInUser = useSelector((state) => state.login.userId);
+  const loggedInUser = useSelector((state) => state.users.userId);
 
   const addPlacehandler = (e) => {
     e.preventDefault();
@@ -41,11 +41,7 @@ const Form = () => {
 
   return (
     <>
-      <form
-        className="form"
-        onSubmit={addPlacehandler}
-        onReset={resetForm}
-      >
+      <form className="form" onSubmit={addPlacehandler} onReset={resetForm}>
         <input
           className="input"
           type="text"

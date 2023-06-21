@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import reservationsReducer from './redux/reservations/reservationsSlice';
-import loginReducer from './redux/login/loginSlice';
+import usersReducer from './redux/users/usersSlice';
 
 export default function createMockStore(initialState) {
   const store = configureStore({
     reducer: {
       reservations: reservationsReducer,
-      login: loginReducer,
+      users: usersReducer,
     },
     preloadedState: initialState,
   });
