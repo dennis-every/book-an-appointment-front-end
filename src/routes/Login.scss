@@ -1,0 +1,12 @@
+#login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login--container {
+    box-shadow: 0 3px 7.5px rgba(0, 0, 0, 0.15);
+    padding: 3rem 2rem 1rem 2rem;
+    border-radius: 1rem;
+  }
+}

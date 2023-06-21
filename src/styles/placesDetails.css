@@ -1,0 +1,89 @@
+.details-container {
+  width: 100vw;
+  height: 100%;
+}
+
+.place-image {
+  width: 70vw;
+  height: 100vh;
+}
+
+.detailsText {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.circleD {
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.buttonReserve {
+  background-color: #97bf0f;
+  height: 2.5vw;
+}
+
+.buttonBackPos {
+  position: absolute;
+  top: 80vh;
+}
+
+@media screen and (min-width: 800px) {
+  .circleD {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50%;
+  }
+
+  .img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .details-container {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    margin-top: 5vh;
+  }
+
+  .place-image {
+    width: 70vw;
+    height: auto;
+  }
+
+  .info-details {
+    margin-right: 0;
+    align-items: center;
+  }
+
+  .reserve-mobile {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.no-style-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}

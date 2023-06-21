@@ -1,0 +1,88 @@
+/* ======= 3. BUTTONS STYLES  ======= */
+.btn-radius {
+  border-radius: 100px !important;
+}
+
+.btn {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  padding: 13px 28px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.14);
+  text-transform: uppercase;
+  box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-sm {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 11px 25px;
+}
+
+.btn-lg {
+  padding: 18px 49px;
+}
+
+.btn-xs {
+  font-size: 10px;
+  padding: 8px 14px;
+}
+
+.btn-success {
+  background: #97bf0f;
+  background: -moz-linear-gradient(-45deg, #97bf0f 0%, #21dd72 50%, #05c44e 51%, #97bf0f 71%, #97bf0f 100%);
+  background: -webkit-linear-gradient(-45deg, #97bf0f 0%, #21dd72 50%, #05c44e 51%, #97bf0f 71%, #97bf0f 100%);
+  background: linear-gradient(135deg, #97bf0f 0%, #21dd72 50%, #05c44e 51%, #97bf0f 71%, #97bf0f 100%);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#97bf0f', endColorstr='#97bf0f', GradientType=1);
+  background-size: 400% 400%;
+  -webkit-animation: animationname 3s ease infinite;
+  -moz-animation: animationname 3s ease infinite;
+  animation: AnimationName 3s ease infinite;
+  -webkit-animation: animationname 3s ease infinite;
+  -moz-animation: animationname 3s ease infinite;
+  animation: AnimationName 3s ease infinite;
+  border: medium none;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 31%;
+  }
+
+  50% {
+    background-position: 100% 70%;
+  }
+
+  100% {
+    background-position: 0% 31%;
+  }
+}
+
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 31%;
+  }
+
+  50% {
+    background-position: 100% 70%;
+  }
+
+  100% {
+    background-position: 0% 31%;
+  }
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 31%;
+  }
+
+  50% {
+    background-position: 100% 70%;
+  }
+
+  100% {
+    background-position: 0% 31%;
+  }
+}
