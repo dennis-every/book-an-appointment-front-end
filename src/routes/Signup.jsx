@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import { submitLoginForm } from '../redux/login/loginSlice';
-import './Login.scss';
+import { submitSignupForm } from '../redux/signup/signupSlice';
+import './Signup.scss';
 
-const LogIn = () => {
+export const Signup = () => {
   const [userName, setUserName] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -15,16 +15,16 @@ const LogIn = () => {
     const user = {
       name: userName,
     };
-    dispatch(submitLoginForm(user));
+    dispatch(submitSignupForm(user));
     setUserName('');
     navigate('/');
   };
 
   return (
-    <section id="login">
-      <div className="login--container">
+    <section id="signup">
+      <div className="signup--container">
         <header>
-          <h1 className="text-center fs-2 text-secondary">Login</h1>
+          <h1 className="text-center fs-2 text-secondary">Signup</h1>
         </header>
         <main>
           <form onSubmit={handleSubmit}>
@@ -51,8 +51,8 @@ const LogIn = () => {
           </form>
           <div className="text-center mt-5">
             <div>
-              <Link to="/signup" className="text-muted">
-                Signup
+              <Link to="/login" className="text-muted">
+                Login
               </Link>
             </div>
             <div>
@@ -67,4 +67,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default Signup;

@@ -8,6 +8,7 @@ import Places from './routes/Places';
 import NotMatch from './routes/NotMatch';
 import Layout from './components/Layout';
 import LogIn from './routes/LogIn';
+import SignUp from './routes/Signup';
 import PlaceDetails from './routes/PlaceDetails';
 
 const App = () => (
@@ -22,6 +23,7 @@ const App = () => (
       <Route path="*" element={<NotMatch />} />
     </Route>
     <Route path="login" element={<LogIn />} />
+    <Route path="signup" element={<SignUp />} />
   </Routes>
 
 );
