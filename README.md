@@ -34,7 +34,8 @@
 
 > This is a full-stack built with React, Redux, Bootstrap, and Ruby on Rails. Users are able to perform various actions such as creating new places and reservations, accessing detailed information about specific places, and removing places from the system.
 
-[Link to the Back End Repo](https://github.com/dennis-every/book-an-appointment-api)
+[Link to the Back End Repo](https://github.com/dennis-every/book-an-appointment-api)<br>
+[Backend Deployed link](https://boiling-taiga-49294-bcedd3da6f09.herokuapp.com/api-docs/index.html)
 
 ## 🛠 Built With <a name="built-with"></a>
 
