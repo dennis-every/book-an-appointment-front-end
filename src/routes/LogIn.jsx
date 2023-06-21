@@ -50,9 +50,16 @@ const LogIn = () => {
             </div>
           </form>
           <div className="text-center mt-5">
-            <Link to="/" className="text-muted">
-              Back
-            </Link>
+            <div>
+              <Link to="/signup" className="text-muted">
+                Signup
+              </Link>
+            </div>
+            <div>
+              <Link to="/" className="text-muted">
+                Back
+              </Link>
+            </div>
           </div>
         </main>
       </div>
