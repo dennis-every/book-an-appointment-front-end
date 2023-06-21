@@ -1,17 +1,23 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
+import { submitSignupForm } from '../redux/signup/signupSlice';
 import './Signup.scss';
 
 export const Signup = () => {
   const [userName, setUserName] = useState('');
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(userName);
+    const user = {
+      name: userName,
+    };
+    dispatch(submitSignupForm(user));
     setUserName('');
-    navigate('/signup');
+    navigate('/');
   };
 
   return (
