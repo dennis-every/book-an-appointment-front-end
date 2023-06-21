@@ -4,7 +4,7 @@ import Reservation from './Reservation';
 const ReservationsContainer = () => {
   const { reservationsItems } = useSelector((state) => state.reservations);
   const places = useSelector((state) => state.places);
-  const { userName } = useSelector((state) => state.login);
+  const { userName } = useSelector((state) => state.users);
   if (reservationsItems.length === 0) {
     return (
       <div className="d-flex flex-column justify-content-center align-items-center vh-100 empty-places">
@@ -29,7 +29,6 @@ const ReservationsContainer = () => {
           reserveId={item.id}
         />
       ))}
-
     </div>
   );
 };

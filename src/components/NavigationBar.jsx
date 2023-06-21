@@ -10,8 +10,8 @@ const NavigationBar = () => {
   const [isClosed, setIsClosed] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
-  const userId = useSelector((state) => state.login.userId);
-  const userName = useSelector((state) => state.login.userName);
+  const userId = useSelector((state) => state.users.userId);
+  const userName = useSelector((state) => state.users.userName);
 
   const getLoginLink = (userId) => {
     if (userId) {
