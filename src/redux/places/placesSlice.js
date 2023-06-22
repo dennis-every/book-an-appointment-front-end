@@ -5,7 +5,7 @@ const FETCH_PLACES = 'final_capstone_frontend/places/FETCH_PLACES';
 const ADD_PLACE = 'final_capstone_frontend/places/ADD_PLACE';
 
 // URL
-const placesURL = 'http://127.0.0.1:3000/api/v1/places';
+const placesURL = 'https://boiling-taiga-49294-bcedd3da6f09.herokuapp.com/api/v1/places';
 
 // Async function
 const fetchPlacesAsync = createAsyncThunk(

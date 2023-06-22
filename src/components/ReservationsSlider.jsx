@@ -44,7 +44,8 @@ const ReservationsSlider = () => {
     return (
       <div className="d-flex flex-column justify-content-center text-center align-items-center vh-100 empty-places">
         <h2 className="mb-3 fs-3 fw-bold text-white text-center Open-sans ">
-          You don&apos;t have reservations yet
+          You don&apos;t have reservations yet,
+          {' '}
           {userName}
           .
         </h2>
