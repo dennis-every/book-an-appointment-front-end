@@ -10,7 +10,7 @@ export const initialState = {
 
 export const getReservations = createAsyncThunk('reservations/getReservations',
   async (userId) => {
-    const getUrl = `https://boiling-taiga-49294-bcedd3da6f09.herokuapp.com//api/v1/users/${userId}/reservations`;
+    const getUrl = `https://throbbing-leaf-3980.fly.dev//api/v1/users/${userId}/reservations`;
     try {
       const response = await fetch(getUrl);
       const data = await response.json();
@@ -20,7 +20,7 @@ export const getReservations = createAsyncThunk('reservations/getReservations',
     }
   });
 
-const URL = 'https://boiling-taiga-49294-bcedd3da6f09.herokuapp.com/api/v1/reservations';
+const URL = 'https://throbbing-leaf-3980.fly.dev/api/v1/reservations';
 
 export const createReservation = createAsyncThunk(
   'reservations/createReservation',
