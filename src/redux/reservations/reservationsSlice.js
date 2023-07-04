@@ -8,9 +8,10 @@ export const initialState = {
   errors: null,
 };
 
-export const getReservations = createAsyncThunk('reservations/getReservations',
+export const getReservations = createAsyncThunk(
+  'reservations/getReservations',
   async (userId) => {
-    const getUrl = `https://boiling-taiga-49294-bcedd3da6f09.herokuapp.com//api/v1/users/${userId}/reservations`;
+    const getUrl = `http://localhost:3000/api/v1/users/${userId}/reservations`;
     try {
       const response = await fetch(getUrl);
       const data = await response.json();
@@ -18,9 +19,10 @@ export const getReservations = createAsyncThunk('reservations/getReservations',
     } catch (error) {
       return error.message();
     }
-  });
+  }
+);
 
-const URL = 'https://boiling-taiga-49294-bcedd3da6f09.herokuapp.com/api/v1/reservations';
+const URL = 'http://localhost:3000/api/v1/reservations';
 
 export const createReservation = createAsyncThunk(
   'reservations/createReservation',
@@ -31,7 +33,7 @@ export const createReservation = createAsyncThunk(
     } catch (e) {
       return rejectWithValue('An error occurred');
     }
-  },
+  }
 );
 
 const reservationsSlice = createSlice({
