@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const LOGIN_URL = 'http://localhost:3000/api/v1/login';
-const SIGNUP_URL = 'http://localhost:3000/api/v1/signup';
+const LOGIN_URL = 'https://reservation-places.onrender.com/api/v1/login';
+const SIGNUP_URL = 'https://reservation-places.onrender.com/api/v1/signup';
 
 const initialState = {
   userName: '',
@@ -21,7 +21,7 @@ export const submitLoginForm = createAsyncThunk(
     } catch (e) {
       return rejectWithValue(e.message);
     }
-  }
+  },
 );
 
 export const submitSignupForm = createAsyncThunk(
@@ -33,7 +33,7 @@ export const submitSignupForm = createAsyncThunk(
     } catch (e) {
       return rejectWithValue(e.message);
     }
-  }
+  },
 );
 
 const usersSlice = createSlice({

@@ -5,7 +5,7 @@ const FETCH_PLACES = 'final_capstone_frontend/places/FETCH_PLACES';
 const ADD_PLACE = 'final_capstone_frontend/places/ADD_PLACE';
 
 // URL
-const placesURL = 'http://localhost:3000/api/v1/places';
+const placesURL = 'https://reservation-places.onrender.com/api/v1/places';
 
 // Async function
 const fetchPlacesAsync = createAsyncThunk(FETCH_PLACES, async () => {
@@ -57,8 +57,9 @@ const placesSlice = createSlice({
         ...state,
         { ...action.payload },
       ])
-      .addCase(delPlace.fulfilled, (state, action) =>
-        state.filter((place) => place.id !== action.payload)
+      .addCase(
+        delPlace.fulfilled,
+        (state, action) => state.filter((place) => place.id !== action.payload),
       );
   },
 });
