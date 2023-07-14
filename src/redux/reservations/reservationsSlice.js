@@ -8,7 +8,8 @@ export const initialState = {
   errors: null,
 };
 
-export const getReservations = createAsyncThunk('reservations/getReservations',
+export const getReservations = createAsyncThunk(
+  'reservations/getReservations',
   async (userId) => {
     const getUrl = `https://reservation-places.onrender.com//api/v1/users/${userId}/reservations`;
     try {
@@ -18,7 +19,8 @@ export const getReservations = createAsyncThunk('reservations/getReservations',
     } catch (error) {
       return error.message();
     }
-  });
+  }
+);
 
 const URL = 'https://reservation-places.onrender.com/api/v1/reservations';
 
@@ -31,7 +33,7 @@ export const createReservation = createAsyncThunk(
     } catch (e) {
       return rejectWithValue('An error occurred');
     }
-  },
+  }
 );
 
 const reservationsSlice = createSlice({

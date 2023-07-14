@@ -21,7 +21,7 @@ export const submitLoginForm = createAsyncThunk(
     } catch (e) {
       return rejectWithValue(e.message);
     }
-  },
+  }
 );
 
 export const submitSignupForm = createAsyncThunk(
@@ -33,7 +33,7 @@ export const submitSignupForm = createAsyncThunk(
     } catch (e) {
       return rejectWithValue(e.message);
     }
-  },
+  }
 );
 
 const usersSlice = createSlice({
