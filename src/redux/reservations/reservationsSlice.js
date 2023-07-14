@@ -19,7 +19,7 @@ export const getReservations = createAsyncThunk(
     } catch (error) {
       return error.message();
     }
-  }
+  },
 );
 
 const URL = 'https://reservation-places.onrender.com/api/v1/reservations';
@@ -33,7 +33,7 @@ export const createReservation = createAsyncThunk(
     } catch (e) {
       return rejectWithValue('An error occurred');
     }
-  }
+  },
 );
 
 const reservationsSlice = createSlice({

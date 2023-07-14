@@ -57,8 +57,9 @@ const placesSlice = createSlice({
         ...state,
         { ...action.payload },
       ])
-      .addCase(delPlace.fulfilled, (state, action) =>
-        state.filter((place) => place.id !== action.payload)
+      .addCase(
+        delPlace.fulfilled,
+        (state, action) => state.filter((place) => place.id !== action.payload),
       );
   },
 });
