@@ -5,6 +5,7 @@ import { Icon } from '@iconify/react';
 import '../styles/places.css';
 import { Link } from 'react-router-dom';
 import { isMobileOnly } from 'react-device-detect';
+import { motion, AnimatePresence } from 'framer-motion';
 import { fetchPlacesAsync } from '../redux/places/placesSlice';
 
 const Place = ({ place }) => {
@@ -30,11 +31,14 @@ const Place = ({ place }) => {
     <li className="each-item">
       <Link className="place-link" to={`/places/${id}`}>
         <div className="place-wrapper">
-          <div className="img-cont">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="img-cont"
+          >
             <div className="circle">
               <img src={photo} className="img" alt="Place" />
             </div>
-          </div>
+          </motion.div>
           <h2 className="location">{location}</h2>
           <p className="dots">....................</p>
         </div>
@@ -75,37 +79,46 @@ const WebPlaceList = ({
     ));
 
   return (
-    <div className="place-list-container">
-      <ul className="list">{createList()}</ul>
-      <div className="pagination">
-        <div
-          className={`button-boxleft ${currentPage === 0 ? 'disabled' : ''}`}
-        >
-          <button
-            type="button"
-            className="pagination-button"
-            disabled={currentPage === 0}
-            onClick={handlePreviousPage}
+    <AnimatePresence>
+      <motion.div
+        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.6 }}
+        className="place-list-container"
+        exit={{ x: -300, opacity: 0 }}
+      >
+        <ul className="list">{createList()}</ul>
+        <div className="pagination">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className={`button-boxleft ${currentPage === 0 ? 'disabled' : ''}`}
           >
-            <Icon color="#fff" icon="bx:left-arrow" />
-          </button>
-        </div>
-        <div
-          className={`button-boxright ${
-            places.length <= (currentPage + 1) * 3 ? 'disabled' : ''
-          }`}
-        >
-          <button
-            type="button"
-            className="pagination-button"
-            disabled={places.length <= (currentPage + 1) * 3}
-            onClick={handleNextPage}
+            <button
+              type="button"
+              className="pagination-button"
+              disabled={currentPage === 0}
+              onClick={handlePreviousPage}
+            >
+              <Icon color="#fff" icon="bx:left-arrow" />
+            </button>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className={`button-boxright ${
+              places.length <= (currentPage + 1) * 3 ? 'disabled' : ''
+            }`}
           >
-            <Icon color="#fff" icon="bx:right-arrow" />
-          </button>
+            <button
+              type="button"
+              className="pagination-button"
+              disabled={places.length <= (currentPage + 1) * 3}
+              onClick={handleNextPage}
+            >
+              <Icon color="#fff" icon="bx:right-arrow" />
+            </button>
+          </motion.div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
