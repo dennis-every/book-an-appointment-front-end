@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { submitSignupForm } from '../redux/users/usersSlice';
 import './Signup.scss';
 
@@ -42,7 +43,8 @@ export const Signup = () => {
               </label>
             </div>
             <div className="d-grid mt-5">
-              <input
+              <motion.input
+                whileHover={{ scale: 1.1 }}
                 type="submit"
                 value="Submit"
                 className="btn btn-success btn-radius"

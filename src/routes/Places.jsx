@@ -82,13 +82,14 @@ const WebPlaceList = ({
     <AnimatePresence>
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-        transition={{ duration: 0.6}}
+        transition={{ duration: 0.6 }}
         className="place-list-container"
         exit={{ x: -300, opacity: 0 }}
       >
         <ul className="list">{createList()}</ul>
         <div className="pagination">
-          <div
+          <motion.div
+            whileHover={{ scale: 1.1 }}
             className={`button-boxleft ${currentPage === 0 ? 'disabled' : ''}`}
           >
             <button
@@ -99,8 +100,9 @@ const WebPlaceList = ({
             >
               <Icon color="#fff" icon="bx:left-arrow" />
             </button>
-          </div>
-          <div
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
             className={`button-boxright ${
               places.length <= (currentPage + 1) * 3 ? 'disabled' : ''
             }`}
@@ -113,7 +115,7 @@ const WebPlaceList = ({
             >
               <Icon color="#fff" icon="bx:right-arrow" />
             </button>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </AnimatePresence>
