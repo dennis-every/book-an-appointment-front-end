@@ -79,7 +79,11 @@ const WebPlaceList = ({
     ));
 
   return (
-    <div className="place-list-container">
+    <motion.div
+      whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+      transition={{ duration: 0.6}}
+      className="place-list-container"
+    >
       <ul className="list">{createList()}</ul>
       <div className="pagination">
         <div
@@ -109,7 +113,7 @@ const WebPlaceList = ({
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

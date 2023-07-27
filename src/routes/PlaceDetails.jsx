@@ -20,11 +20,14 @@ const PlaceDetails = () => {
 
   return (
     <div className="d-flex details-container">
-      <section className="d-flex align-items-center justify-content-center place-image">
+      <motion.section
+        whileHover={{}}
+        className="d-flex align-items-center justify-content-center place-image"
+      >
         <div className="circleD" style={{ backgroundColor: 'beige' }}>
           <img src={place.photo} alt="" className="img" />
         </div>
-      </section>
+      </motion.section>
       <section className="d-flex flex-column align-items-end info-details">
         <div className="d-flex flex-column align-items-end justify-content-center">
           <h2 className="mt-5 title">{place.location}</h2>
