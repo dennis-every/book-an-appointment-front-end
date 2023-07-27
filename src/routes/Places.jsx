@@ -6,7 +6,8 @@ import '../styles/places.css';
 import { Link } from 'react-router-dom';
 import { isMobileOnly } from 'react-device-detect';
 import { fetchPlacesAsync } from '../redux/places/placesSlice';
-
+import { motion } from 'framer-motion';
+ 
 const Place = ({ place }) => {
   const {
     id, description, photo, location, rate,
@@ -30,11 +31,14 @@ const Place = ({ place }) => {
     <li className="each-item">
       <Link className="place-link" to={`/places/${id}`}>
         <div className="place-wrapper">
-          <div className="img-cont">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="img-cont"
+            >
             <div className="circle">
               <img src={photo} className="img" alt="Place" />
             </div>
-          </div>
+          </motion.div>
           <h2 className="location">{location}</h2>
           <p className="dots">....................</p>
         </div>
