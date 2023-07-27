@@ -4,7 +4,12 @@
 }
 
 .place-image {
-  width: 70vw;
+  width: 55vw;
+  height: 100vh;
+}
+
+.info-details {
+  width: 35%;
   height: 100vh;
 }
 
